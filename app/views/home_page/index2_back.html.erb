@@ -1,0 +1,283 @@
+<section class="section-slider">
+  <div class="flexslider fw-slider" data-autoscroll="8">
+    <ul class="slides">
+      <li class="slide overlay active flex-active-slide" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;">
+        <div class="slide-image">
+          <img src="./demo_files/slide-girl-with-computer-1140x385.jpg" srcset="./demo_files/slide-girl-with-computer-1140x385.jpg 1140w, ./demo_files/slide-girl-with-computer.jpg 1920w" sizes="100vw" alt="Educator WP" draggable="false">
+        </div>
+        <div class="slide-caption light left in" style="top: 149px;">
+          <div class="container">
+            <div class="caption-inner"><h2 class="slide-title"><%=@school_name%></h2>
+
+              <div class="slide-description">致力于国外考试TOEFL，IELTS，Sat，SSAT，AP，ACT，国外名校高中衔接课程等教学和考试技能开发。</div>
+              <div class="buttons">
+                <a class="button button-white" href="#" target="_blank">更多信息</a></div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="slide overlay" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;">
+        <div class="slide-image">
+          <img src="./demo_files/slide-bookshop-1140x385.jpg" srcset="/demo_files/slide-bookshop-1140x385.jpg 1140w, /demo_files/slide-bookshop.jpg 1920w" sizes="100vw" alt="Lorem Ipsum" draggable="false">
+        </div>
+        <div class="slide-caption light left" style="top: 149px;">
+          <div class="container">
+            <div class="caption-inner"><h2 class="slide-title">教师师资</h2>
+
+              <div class="slide-description">主创团队由四川留学和培训行业超过10年的资深导师组建</div>
+
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="slide overlay" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;">
+        <div class="slide-image">
+          <img src="./demo_files/slide-travel-1140x385.jpg" srcset="./demo_files/slide-travel-1140x385.jpg 1140w, ./demo_files/slide-travel.jpg 1920w" sizes="100vw" alt="Study Anywhere" draggable="false">
+        </div>
+        <div class="slide-caption light left" style="top: 149px;">
+          <div class="container">
+            <div class="caption-inner"><h2 class="slide-title">辅课模式</h2>
+              <div class="slide-description">让孩子课余外还有老师跟进作业完成，单词听写等，让孩子可以充分吸收当天的学习内容</div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="flex-direction-nav">
+      <li><a class="flex-prev" href="#"></a></li>
+      <li><a class="flex-next" href="#"></a></li>
+    </ul>
+  </div>
+</section>
+<section class="section-content section-bg" style="background-color:#f5f5f5;">
+  <div class="container clearfix">
+    <div class="entry-content">
+      <div class="dm3-accordion">
+        <%HomePageData.school_features.each_pair do |key,value|%>
+            <div class="dm3-collapse-item ">
+              <div class="dm3-collapse-trigger"><a><%=key%></a></div>
+              <div class="dm3-collapse-body dm3-collapse" >
+                <div class="dm3-collapse-inner"><%=value%></div>
+              </div>
+            </div>
+        <%end%>
+
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</section>
+<!--学校优势区块-->
+<section class="section-content" >
+  <div class="container clearfix">
+    <div class="entry-content">
+      <div class="title1 clearfix">
+        <div class="text"><h2><%=@school_name%></h2></div>
+        <div class="sub-title">了解<%=@school_name%>的几大优势</div>
+      </div>
+      <table class="ui celled  selectable table">
+        <thead>
+        <tr>
+          <th style="width: 20%">
+          <th style="width: 40%"><h3>睿希教育</h3></th>
+          <th><h3>其他培训机构</h3></th>
+        </tr></thead>
+        <tbody>
+        <%HomePageData.school_compareInfo.each_pair do |key_str,value_arr|%>
+            <% 1+1 #render partial: "course", object: course  # 不再输出此内容,用表格替换%>
+            <tr>
+              <td><%=key_str%></td>
+              <td class="positive"><%=value_arr[0]%></td>
+              <td  class="warning"><%=value_arr[1]%></td>
+            </tr>
+        <%end%>
+        </tbody>
+      </table>
+
+      <div class="clear"></div>
+    </div>
+  </div>
+</section>
+
+<!--教学报告区块-->
+<section class="section-content" style="background-color:#f5f5f5;">
+  <div class="container clearfix">
+    <div class="entry-content">
+      <div class="title1 clearfix">
+        <div class="text"><h2>教学报告</h2></div>
+        <div class="sub-title">美国高中生物课程衔接学习情况</div>
+      </div>
+      <table class="ui celled  selectable table">
+        <tbody>
+        <%HomePageData.report1.each_pair do |key_str,value_str|%>
+            <tr>
+              <td><%=key_str%></td>
+              <td ><%=value_str%></td>
+            </tr>
+        <%end%>
+        </tbody>
+      </table>
+
+      <div class="title1 clearfix">
+        <div class="sub-title">辅导学习情况</div>
+      </div>
+      <table class="ui celled  selectable table">
+        <tbody>
+        <%HomePageData.report2.each_pair do |key_str,value_str|%>
+            <tr>
+              <td><%=key_str%></td>
+              <td ><%=value_str%></td>
+            </tr>
+        <%end%>
+        </tbody>
+      </table>
+
+      <div class="clear"></div>
+    </div>
+  </div>
+</section>
+
+<!--培训班课程介绍 段  此段内容放置到二级页面上了-->
+<%if nil%>
+    <section class="section-content">
+
+      <div class="container clearfix">
+        <div class="entry-content">
+          <div class="title1 clearfix">
+            <div class="text">
+              <h2>课程</h2>
+            </div>
+          </div>
+          <div class="dm3-accordion">
+            <%HomePageData.courseCategory_code2name.each_pair do|key_code,value_name|%>
+                <%courses =(HomePageData.courses_categoryCode2hash[key_code].try(:values) )||{} %>
+
+                <div class="dm3-collapse-item dm3-collapse-open">
+                  <div class="dm3-collapse-trigger">
+                    <a href="#" style="background-color: #cff7ff;"><h3 style="color: #9f1d1d;"> <%=value_name%></h3></a>
+                  </div>
+                  <div class="dm3-collapse-body dm3-in  dm3-collapse">
+                    <div class="dm3-collapse-inner">
+                      <div style="color:#86ddef;">
+                        <%=simple_format(HomePageData.course_code2descriptionB[key_code])%>
+                      </div>
+                      <div class="title1 clearfix" style="text-align: left;" >
+                        <div class="text"><h4>课程特色</h4></div>
+
+                        <div class="sub-title" style="text-align: left; margin: 0;"><%=simple_format(HomePageData.course_code2description[key_code])%>
+                        </div>
+                      </div>
+                      <% if courses.length>0%>
+                          <table class="ui celled selectable table">
+                            <thead>
+                            <tr>
+                              <th>课程</th>
+                              <th>课时</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <%courses.each do |course|%>
+                                <tr>
+                                  <td class="positive"><%=course[:name]%></td>
+                                  <td><%=course[:time_length]%></td>
+                                </tr>
+                            <%end%>
+                            </tbody>
+                          </table>
+                      <%end%>
+                    </div>
+
+                  </div>
+                </div>
+
+
+            <%end%>
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+<%end%>
+<!--讲师介绍 区域-->
+<%= render 'home_page/partical_lecturers', locals: {lecturers: @lecturers} %>
+
+
+<!--学员感言-->
+<section class="section-content section-bg" style="background-color:#f5f5f5;">
+  <div class="container clearfix">
+    <div class="entry-content">
+      <div class="title1 clearfix">
+        <div class="text"><h2>优秀学员</h2></div>
+      </div>
+      <div class="dm3-tabs-testimonials" data-autoscroll="8">
+        <div class="dm3-tabs" style="height: 334px;">
+          <div class="dm3-tab" style="position: absolute; left: 0px; width: 100%; display: none; opacity: 0;">
+            <div class="dm3-tab-inner">
+              <blockquote>“如果你浪费了自己的年龄，那是挺可悲的。因为你的青春只能持续一点儿时间——很短的一点儿时间。
+                ”
+              </blockquote>
+              <div class="dm3-testimonial-photo"><img src="./demo_files/student-1.jpg" alt=""></div>
+              <div class="dm3-testimonial-name">Jinny Wise</div>
+              <div class="dm3-testimonial-description">美国大学</div>
+            </div>
+          </div>
+          <div class="dm3-tab" style="position: absolute; left: 0px; width: 100%; display: block; opacity: 1;">
+            <div class="dm3-tab-inner">
+              <blockquote>“人生并不像火车要通过每个站似的经过每一个生活阶段。人生总是直向前行走，从不留下什么。”
+              </blockquote>
+              <div class="dm3-testimonial-photo"><img src="./demo_files/student-2.jpg" alt=""></div>
+              <div class="dm3-testimonial-name">James</div>
+              <div class="dm3-testimonial-description">剑桥大学</div>
+            </div>
+          </div>
+          <div class="dm3-tab" style="position: absolute; left: 0px; width: 100%; display: none; opacity: 0;">
+            <div class="dm3-tab-inner">
+              <blockquote>“伟大的思想能变成巨大的财富。”
+              </blockquote>
+              <div class="dm3-testimonial-photo"><img src="./demo_files/student-3.jpg" alt=""></div>
+              <div class="dm3-testimonial-name"><a href="http://google.com/" target="_blank">John Doe</a></div>
+              <div class="dm3-testimonial-description">哈佛大学</div>
+            </div>
+          </div>
+        </div>
+        <ul class="dm3-tabs-nav">
+          <li class=""><a href="#">1</a></li>
+          <li class=""><a href="#">2</a></li>
+          <li class=""><a href="#">3</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--学员成绩滚动展示-->
+<section class="section-content">
+  <div class="container clearfix">
+    <div class="flexslider fw-slider" data-autoscroll="3">
+      <ul class="slides">
+        <li class="slide overlay active flex-active-slide" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;">
+          <div class="slide-image">
+            <img src="./demo_files/point01.jpg" srcset="./demo_files/point01.jpg 1140w, ./demo_files/point01.jpg 1920w" sizes="100vw"  draggable="false">
+          </div>
+        </li>
+        <li class="slide overlay" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;">
+          <div class="slide-image">
+            <img src="./demo_files/point02.jpg" srcset="./demo_files/point02.jpg 1140w, ./demo_files/point02.jpg 1920w" sizes="100vw"  draggable="false">
+          </div>
+
+        </li>
+        <li class="slide overlay" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;">
+          <div class="slide-image">
+            <img src="./demo_files/point03.png" srcset="./demo_files/point03.png 1140w, ./demo_files/point03.png 1920w" sizes="100vw"  draggable="false">
+          </div>
+        </li>
+      </ul>
+
+
+    </div>
+
+  </div>
+</section>
+

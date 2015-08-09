@@ -1,0 +1,186 @@
+<div class="row">
+  <div class="col-md-4 col-sm-6 portlets">
+    <div class="panel">
+      <div class="panel-header panel-controls">
+        <h3><i class="icon-list"></i> <strong>待办事项</strong> </h3>
+      </div>
+      <div class="panel-content">
+        <ul class="todo-list ui-sortable">
+          <li class="high">
+                      <span class="span-check">
+                      <input id="task-1" type="checkbox" data-checkbox="icheckbox_square-blue" />
+                      <label for="task-1"></label>
+                      </span>
+            <span class="todo-task">Send email to Bob Linch</span>
+            <div class="todo-date clearfix">
+              <div class="completed-date"></div>
+              <div class="due-date">Due on <span class="due-date-span">15 December 2014</span></div>
+            </div>
+                      <span class="todo-options pull-right">
+                      <a href="javascript:;" class="todo-delete"><i class="icons-office-52"></i></a>
+                      </span>
+            <div class="todo-tags pull-right">
+              <div class="label label-success">Work</div>
+            </div>
+          </li>
+          <li>
+                      <span class="span-check">
+                      <input id="task-2" type="checkbox" data-checkbox="icheckbox_square-blue"/>
+                      <label for="task-2"></label>
+                      </span>
+            <span class="todo-task">Call datacenter for servers</span>
+            <div class="todo-date clearfix">
+              <div class="completed-date"></div>
+              <div class="due-date">Due on <span class="due-date-span">7 January</span></div>
+            </div>
+                      <span class="todo-options pull-right">
+                      <a href="javascript:;" class="todo-delete"><i class="icons-office-52"></i></a>
+                      </span>
+          </li>
+          <li class="low">
+                      <span class="span-check">
+                      <input id="task-3" type="checkbox" data-checkbox="icheckbox_square-blue"/>
+                      <label for="task-3"></label>
+                      </span>
+            <span class="todo-task">Remove all unused icons</span>
+            <div class="todo-date clearfix">
+              <div class="completed-date"></div>
+              <div class="due-date">Due on <span class="due-date-span">5 January</span></div>
+            </div>
+                      <span class="todo-options pull-right">
+                      <a href="javascript:;" class="todo-delete"><i class="icons-office-52"></i></a>
+                      </span>
+          </li>
+          <li class="medium">
+                      <span class="span-check">
+                      <input id="task-4" type="checkbox" data-checkbox="icheckbox_square-blue"/>
+                      <label for="task-4"></label>
+                      </span>
+            <span class="todo-task">Read my todo list</span>
+            <div class="todo-date clearfix">
+              <div class="completed-date"></div>
+              <div class="due-date">Due on <span class="due-date-span">4 January</span></div>
+            </div>
+                      <span class="todo-options pull-right">
+                      <a href="javascript:;" class="todo-delete"><i class="icons-office-52"></i></a>
+                      </span>
+            <div class="todo-tags pull-right">
+              <div class="label label-info">Tuesday</div>
+            </div>
+          </li>
+          <li>
+                      <span class="span-check">
+                      <input id="task-6" type="checkbox" data-checkbox="icheckbox_square-blue"/>
+                      <label for="task-6"></label>
+                      </span>
+            <span class="todo-task">Have a breakfeast before 12</span>
+            <div class="todo-date clearfix">
+              <div class="completed-date"></div>
+              <div class="due-date">Due on <span class="due-date-span">1 January</span></div>
+            </div>
+                      <span class="todo-options pull-right">
+                      <a href="javascript:;" class="todo-delete"><i class="icons-office-52"></i></a>
+                      </span>
+          </li>
+        </ul>
+        <div class="clearfix m-t-10">
+          <div class="pull-left">
+            <button type="button" class="btn btn-sm btn-default check-all-tasks">全部完成</button>
+          </div>
+          <div class="pull-right">
+            <button type="button" class="btn btn-sm btn-dark add-task">添加任务</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-6 portlets">
+    <div class="panel widget-weather"></div>
+    <div class="panel widget-member clearfix">
+      <div class="col-xs-3">
+        <img src="/admin/assets/global/images/avatars/user2.png" alt="avatar 12" class="pull-left img-responsive">
+      </div>
+      <div class="col-xs-9">
+        <h3 class="m-t-0 member-name"><strong>朱雄</strong></h3>
+        <p class="member-job">网站技术支持</p>
+        <div class="row">
+          <div class="col-xlg-6">
+            <p><i class="icon-envelope c-gray-light p-r-10"></i> 2021273@qq.com</p>
+            <p><i class="fa fa-facebook c-gray-light p-r-10"></i> 15608033579</p>
+          </div>
+          <div class="col-xlg-6 align-right">
+            <p><i class="icon-target c-gray-light p-r-10"></i> 成都</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-6 portlets">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="jquery-clock small" data-jquery-clock="">
+          <li class="jquery-clock-pin"></li>
+          <li class="jquery-clock-sec"></li>
+          <li class="jquery-clock-min"></li>
+          <li class="jquery-clock-hour"></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="widget-progress-bar">
+
+          <% today = Date.parse(Time.now.strftime("%Y/%m/%d")) %>
+
+
+          <% @training_classes_progress.each do |培训班| %>
+              <% days_precent = 0 %>
+              <div class="clearfix">
+                <div class="title"><%="#{培训班.start_date}  [#{培训班.name}]"%>
+                  <% days_passed = 培训班.range_index(today) %>
+                  <% if  days_passed>0 %>
+                      <% days_precent = days_passed *100 / 培训班.days_count %>
+                      <%="(#{days_passed}天/#{培训班.days_count}天)"%>
+                  <%elsif days_passed ==0 %>
+                      <% days_precent = 100 %>
+                      "已经结束"
+
+                  <%else%>
+                      <% days_precent = 0 %>
+                      <%="还有#{days_passed.abs}天开课"%>
+                  <%end%>
+                </div>
+                <div class="number"><%=培训班.end_date%></div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary stat1" data-transitiongoal="<%= days_precent %>"></div>
+              </div>
+        <% end %>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%content_for :page_js_scripts do%>
+
+
+
+
+
+    <script src="/admin/assets/global/plugins/noty/jquery.noty.packaged.min.js"></script>  <!-- Notifications -->
+    <!--#todo list 代办项插件需要的js-->
+    <script src="/admin/assets/global/plugins/bootstrap-editable/js/bootstrap-editable.min.js"></script> <!-- Inline Edition X-editable -->
+    <script src="/admin/assets/global/js/widgets/todo_list.js"></script>
+
+
+    <script src="/admin/assets/global/plugins/bootstrap-context-menu/bootstrap-contextmenu.min.js"></script> <!-- Context Menu -->
+
+    <script src="/admin/assets/global/plugins/skycons/skycons.min.js"></script> <!-- Animated Weather Icons -->
+    <script src="/admin/assets/global/plugins/simple-weather/jquery.simpleWeather.js"></script> <!-- Weather Plugin -->
+    <script src="/admin/assets/global/js/widgets/widget_weather.js"></script>
+    <script src="/admin/assets/global/js/pages/dashboard.js"></script>
+
+<%end%>
