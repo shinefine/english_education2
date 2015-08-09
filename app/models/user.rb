@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
   has_one :teacher
   has_one :employee
 
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
+  # include Elasticsearch::Model
+  # include Elasticsearch::Model::Callbacks
 
 
   validates_presence_of [:name, :phone_number]
