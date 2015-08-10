@@ -18,27 +18,21 @@ class SessionController < ApplicationController
     else
 
       login_result['login']  ='false'
-      login_result['message']='无效的账户或密码'
+      login_result['message']="无效的账户或密码 #{params[:user_name]},#{ params[:password]}"
       flash[:notice]=login_result['message']
     end
 
 
     respond_to do |format|
                   format.html { if login_result['login'] == 'success'
-                                  redirect_to(training_classes_path)
+                                  redirect_to admin_home_page_index_path
                                 else
-                                  redirect_to login_path
+                                  redirect_to admin_home_page_login_path
                                 end
                               }
                   format.json{render json: login_result}
 
     end
-
-  end
-
-  #ajax 登录调用
-  def login
-
 
   end
 

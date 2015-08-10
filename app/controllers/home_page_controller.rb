@@ -15,10 +15,6 @@ class HomePageController < ApplicationController
     render SchoolSettings.home_page_view_name
   end
 
-  def login
-
-  end
-
   def search
         @users = User.search(
              query: {

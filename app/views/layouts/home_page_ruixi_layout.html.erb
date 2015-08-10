@@ -30,6 +30,7 @@
   </style>
 </head>
 <body>
+
 <div class='contain-to-grid sticky transparent'>
   <nav class='top-bar onepage' data-options='sticky_on: large' data-topbar=''>
     <ul class='title-area'>
@@ -41,13 +42,16 @@
         </h1>
       </li>
     </ul>
+    <% if nil %>
     <div class="menu-toggler right">
       <a href='#'>
         <i class="fa fa-bars"></i>
       </a>
     </div>
+    <% end %>
   </nav>
 </div>
+
 <header class=" ">
   <div class='contain-to-grid sticky transparent'>
     <nav class='top-bar onepage' data-options='sticky_on: large' data-topbar=''>
@@ -60,14 +64,19 @@
           </h1>
         </li>
       </ul>
+
+      <% if nil %>
       <div class="menu-toggler right">
         <a href='#'>
           <i class="fa fa-close"></i>
         </a>
       </div>
+      <% end %>
+
     </nav>
   </div>
   <div class="four spacing"></div>
+
   <div class="row">
     <div class="large-12 columns">
       <ul class="centered-text menu">
@@ -95,6 +104,8 @@
     </div>
   </div>
 </header>
+
+
 <div class="full no-padding video-bg no-overflow fullscreen-header top-shift">
   <div class="touch-video-image" style="background-image: url(/homepage/images/@stock/touch-video-image.jpg);">
   </div>

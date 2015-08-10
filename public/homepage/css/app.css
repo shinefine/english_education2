@@ -58,7 +58,8 @@ body {
   background: #fff;
   color: #666666;
   cursor: auto;
-  font-family: Raleway, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, STHeiti,Raleway,Arial, "Microsoft Yahei", sans-serif;
+  /*font-family: Raleway, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;*/
   font-style: normal;
   font-weight: normal;
   line-height: 1.5;

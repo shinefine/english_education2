@@ -42,14 +42,14 @@ User.create([
 
             ])
 
-#TrainingClass.create ([{name:'SAT培训班',exam_type:'SAT' }])
+TrainingClass.create ([{name:'SAT培训班',exam_type:'SAT' }])
 
 
 
 
-# examination 类型已取消，使用内部硬编码代替
-# ExaminationType.create([{name:'SAT'},{name:'SAT_test'},{name:'托福'},
-#                         {name:'托福_test'}])
-#
-# exam_type = ExaminationType.find_by(name:"SAT_test")
-# exam_type.test_papers.create([{name:'SAT_test_paper_001'},{name:'SAT_test_paper_002'},{name:'SAT_test_paper_003'},])
+#examination 类型已取消，使用内部硬编码代替
+ExaminationType.create([{name:'SAT'},{name:'SAT_test'},{name:'托福'},
+                        {name:'托福_test'}])
+
+exam_type = ExaminationType.find_by(name:"SAT_test")
+exam_type.test_papers.create([{name:'SAT_test_paper_001'},{name:'SAT_test_paper_002'},{name:'SAT_test_paper_003'},])
