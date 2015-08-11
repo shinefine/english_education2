@@ -39,7 +39,8 @@ tags
 /public/uploads/*
 
 #admin目录下的文件还未整理好,目录太大
-/public/admin/*
+/public/admin/assets/global/plugins/*
+
 #网站首页模板html使用的图片占位图,不会用在正式网站中.
 /public/homepage/images
 
