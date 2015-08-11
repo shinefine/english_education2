@@ -1,14 +1,19 @@
-<h1>index page</h1>
-<!---->
+<div class="page-content page-thin">
 
-<div class="ui horizontal green label"><h2>学员列表</h2></div>
-<div class="ui blue label">
-  共有学员 <%= @students.length %> 人
+  <% content_for :temp_css_for_semantic do %>
+      <link rel="stylesheet" type="text/css" href="/semantic.min.css">
+  <% end %>
+  <% content_for :temp_js_for_semantic do %>
+      <script src="/semantic.min.js"></script>
+  <% end %>
 
-</div>
 
+  <h2>
+  <span class="label theme-color-label">
+  学员列表
+  </span>
+  </h2>
 
-<br>
 <div class="ui input">
   <%= form_tag search_students_path, method: 'get' do %>
         <span class="input-icon">
@@ -139,3 +144,5 @@
 <%if current_user.employee?%>
 <%= link_to '新建学员', new_student_path,{class: 'ui blue button'} %>
 <%end%>
+
+</div>

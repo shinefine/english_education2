@@ -4,7 +4,9 @@
 <% content_for :temp_css_for_semantic do %>
     <link rel="stylesheet" type="text/css" href="/semantic.min.css">
 <% end %>
-
+  <% content_for :temp_js_for_semantic do %>
+      <script src="/semantic.min.js"></script>
+  <% end %>
 <h2>
   <span class="label theme-color-label">
    <%if current_user.employee?%>

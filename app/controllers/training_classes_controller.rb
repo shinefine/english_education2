@@ -38,6 +38,7 @@ class TrainingClassesController < ApplicationController
     set_training_class_types
     set_subject_types
     set_user_permission_students
+    render layout:'application2'
 
   end
 

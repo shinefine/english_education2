@@ -1,5 +1,19 @@
-<h1></h1>
-<div class="ui green horizontal label"><h2>讲师列表 </h2><h3>共有讲师 <%= @teachers.length %> 人</h3></div>
+<div class="page-content page-thin">
+
+  <% content_for :temp_css_for_semantic do %>
+      <link rel="stylesheet" type="text/css" href="/semantic.min.css">
+  <% end %>
+  <% content_for :temp_js_for_semantic do %>
+      <script src="/semantic.min.js"></script>
+  <% end %>
+
+
+  <h2>
+  <span class="label theme-color-label">
+  讲师列表
+  </span>
+  </h2>
+  <h3>共有讲师 <%= @teachers.length %> 人</h3>
 
 <table class="ui padded table segment">
   <thead>
@@ -50,3 +64,5 @@
 <%if current_user.can_manage_basic_data?%>
 <%= link_to '新建 讲师', new_teacher_path ,{class: 'ui blue button'}%>
 <%end%>
+
+</div>

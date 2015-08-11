@@ -1,7 +1,20 @@
-<h1></h1>
-<div class="ui green horizontal label"><h2>员工列表 </h2></div>
-<br><br>
-<div class="ui purple horizontal label">共有员工 <%= @employees.length %> 人</div>
+ss<div class="page-content page-thin">
+
+  <% content_for :temp_css_for_semantic do %>
+      <link rel="stylesheet" type="text/css" href="/semantic.min.css">
+  <% end %>
+  <% content_for :temp_js_for_semantic do %>
+      <script src="/semantic.min.js"></script>
+  <% end %>
+
+
+  <h2>
+  <span class="label theme-color-label">
+    员工列表
+  </span>
+  </h2>
+<h3>共有员工 <%= @employees.length %> 人</h3>
+
 <table class="ui celled table segment">
   <thead>
   <tr>
@@ -55,3 +68,4 @@
 <%= link_to '新建 员工', new_employee_path ,{class: 'ui blue button'}%>
 <%end%>
 
+</div>
