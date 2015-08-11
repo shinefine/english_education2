@@ -1,4 +1,10 @@
 <!--员工,学员,讲师都使用本视图来查看 培训班信息-->
+<div class="page-content page-thin">
+
+<% content_for :temp_css_for_semantic do %>
+    <link rel="stylesheet" type="text/css" href="/semantic.min.css">
+<% end %>
+
 <h2>
   <span class="label theme-color-label">
    <%if current_user.employee?%>
@@ -149,3 +155,5 @@
       </ul>
     </div>
 <% end %>
+
+</div>

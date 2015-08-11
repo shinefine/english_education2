@@ -9,6 +9,7 @@
   <link rel="shortcut icon" href="/admin/assets/global/images/favicon.png" type="image/png">
   <title>Make Admin Template &amp; Builder</title>
 
+  <%= yield :temp_css_for_semantic%>
 
   <link href="/admin/assets/global/css/style.css" rel="stylesheet">
   <link href="/admin/assets/global/css/theme.css" rel="stylesheet">
@@ -290,23 +291,9 @@
 </div>
 <!-- END TOPBAR -->
 <!-- BEGIN PAGE CONTENT -->
-<div class="page-content page-thin">
 
 <%=yield%>
-  
-<div class="footer">
-  <div class="copyright">
-    <p class="pull-left sm-pull-reset">
-      <span>Copyright <span class="copyright">©</span> 2015 </span>
-      <span>THEMES LAB</span>.
-      <span>All rights reserved. </span>
-    </p>
-    <p class="pull-right sm-pull-reset">
-      <span><a href="#" class="m-r-10">Support</a> | <a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
-    </p>
-  </div>
-</div>
-</div>
+
 <!-- END PAGE CONTENT -->
 </div>
 <!-- END MAIN CONTENT -->
