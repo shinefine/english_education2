@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     #--见需求:不同员工所能操作和看见的学员信息有限制
 
     if current_user.admin?
-      students = Student.all
+      students = Student.includes(:user,:training_classes).all
     elsif current_user.employee?
 
       students = Student.where(creator: current_user.employee)

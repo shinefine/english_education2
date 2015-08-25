@@ -1,7 +1,14 @@
 <h1></h1>
 <div class="ui green horizontal label"><h2>大数据: <%=@year%>年 学员<%=@exam_type%>考试成绩分析</h2></div>
 
-<br><br>
+<style>
+  table{
+    color: black;
+  }
+  table.table table{
+      width: 250px;
+  }
+</style>
 
 <%= form_tag do %>
 
@@ -12,26 +19,71 @@
 
 <%end%>
 
+
+<div class="panel-group panel-accordion" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          涨分情况
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+        <%= render 'big_data_report_partical_score_trend'%>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          最高分数
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+        <%= render 'big_data_report_partical_score_max'%>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          <%=@exam_type%>成绩统计
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+        <%= render 'big_data_report_partical_summary_table',hash_students_score_trend:@hash_students_score_trend%>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<% if nil %>
 <div class="ui  basic vertical fluid accordion">
 
   <!--涨分情况 块-->
     <div class="active title">
       <i class="dropdown icon"></i>
-      <a class="ui teal circular large label">涨分情况</a>
+      <a class="ui teal large label">涨分情况</a>
 
     </div>
     <div class="active content">
-
-
       <%= render 'big_data_report_partical_score_trend'%>
-
     </div>
 
 
   <!--最高分数 块-->
     <div class="title">
       <i class="dropdown icon"></i>
-      <a class="ui teal circular large label">最高分数</a>
+      <a class="ui teal large label">最高分数</a>
 
     </div>
     <div class="content">
@@ -44,7 +96,7 @@
   <!--成绩统计 块-->
   <div class="title">
     <i class="dropdown icon"></i>
-    <a class="ui teal circular large label"><%=@exam_type%>成绩统计</a>
+    <a class="ui teal large label"><%=@exam_type%>成绩统计</a>
 
   </div>
   <div class="content">
@@ -56,3 +108,4 @@
 
 </div>
 
+<% end %>

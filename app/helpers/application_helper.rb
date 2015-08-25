@@ -26,6 +26,17 @@ module ApplicationHelper
   end
 
 
+  def nav_menu_item_icons()
+    item_icons={
+        "关于"=>"icon-puzzle",
+        "基础数据" => "icon-puzzle",
+        "讲师,学员,员工" => "fa fa-user",
+        "培训班" =>"fa fa-stack-overflow",
+
+        "大数据" =>"fa fa-signal",
+    }
+    item_icons
+  end
 #返回 在页面左侧导航菜单栏中应该出现的内容
   def nav_menu_items()
     nav_menus={ }

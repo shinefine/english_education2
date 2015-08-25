@@ -35,7 +35,7 @@ function widgetWeather(){
     });
     //************************* WEATHER WIDGET *************************//
     /* We initiate widget with a city (can be changed) */
-    var city = 'New York';
+    var city = 'ChengDu';
     var today_day = '';
     var icon_type_today = icon_type_1 = icon_type_2 = icon_type_3 = icon_type_4 ="partly-cloudy-day";
 

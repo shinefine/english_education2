@@ -1,80 +1,80 @@
+<style>
+    .page-profil .profil-header .more-friends .num-friends {
+        font-size: 12px;
+    }
+</style>
+
 <div class="page-content page-app page-profil">
 <div class="col-lg-10 col-md-9">
 <div class="profil-content">
   <div class="row profil-header">
-    <div class="col-lg-9 col-md-12">
+    <div class="col-md-9">
       <div class="row">
-        <div class="col-xs-4 profil-img">
+        <div class="col-md-6 ">
           <img src="/admin/assets/global/images/profil_page/training_class_demo.jpg" alt="profil">
         </div>
-        <div class="col-xs-8 p-l-0 col-map">
-          <div class="map" id="profil-map"></div>
-        </div>
-      </div>
+        <div class="col-md-6">
+          <div class ="row">
+          <%= render partial: 'shared/training_class_infobox_widget',object: @training_class,as: :training_class%>
 
-      <div class="row header-name">
-        <div class="col-xs-9">
-          <div class="name"> <%= @training_class.name %> <i class="fa fa-check-circle"></i></div>
-          <div class="profil-info"><i class="icon-present"></i><%= @training_class.exam_type %></div>
           <div class="profil-info"><i class="icon-call-end"></i>
             <strong>从 </strong>
             <%= @training_class.start_date %>
             <strong>到 </strong>
-            <%= @training_class.end_date %> 共计<%=@training_class.days_count%>天</div>
-        </div>
-        <div class="col-xs-3 moments">
-          <div class="num-moments c-primary countup" data-from="0" data-to="137" data-delay="2000" data-suffix="+" data-duration="6">
-            <% today = Date.parse(Time.now.strftime("%Y/%m/%d")) %>
-            <% days_passed = @training_class.range_index(today) %>
-
-            <%if days_passed == 0 %>
-                <p>已结束</p>
-            <%end%>
-
-            <%if days_passed < 0 %>
-                <p>尚未开课(距开课还有<%= days_passed.abs%>天)</p>
-            <%end%>
-
-            <%if days_passed > 0 %>
-
-                <div class="ui active blue striped progress">
-                  <% percent =days_passed *100 / @training_class.days_count %>
-                  <div class="bar" style="width:<%="#{percent}"%>%" >
-                  </div>
-                </div>
-
-            <% end %>
+            <%= @training_class.end_date %> 共计<%=@training_class.days_count%>天
           </div>
-          <div class="text-center">Moments</div>
+
+          </div>
+          <div class="row">
+          <% today = Date.parse(Time.now.strftime("%Y/%m/%d")) %>
+          <% days_passed = @training_class.range_index(today) %>
+
+          <%if days_passed == 0 %>
+              <p>已结束</p>
+          <%end%>
+
+          <%if days_passed < 0 %>
+              <p>尚未开课(距开课还有<%= days_passed.abs%>天)</p>
+          <%end%>
+
+          <%if days_passed > 0 %>
+                <div class="widget-progress-bar">
+                <div class="progress">
+                  <% percent =days_passed *100 / @training_class.days_count %>
+                  <div class="progress-bar progress-bar-primary stat1" data-transitiongoal="0" aria-valuenow="0" style="width: <%="#{percent}"%>%;"></div>
+                </div>
+                </div>
+          <% end %>
+          </div>
+
         </div>
       </div>
     </div>
-    <div class="col-lg-3 col-md-12 user-friends">
+    <div class="col-md-3 user-friends">
       <div class="row m-r-0">
-        <div class="col-sm-4">
-          <img src="/admin/assets/global/images/profil_page/friend1.jpg" class="img-responsive" alt="friend 1">
+        <div class="col-sm-4 bg-red more-friends">
+          <span class="num-friends">班主任:</span>
+          <p> <%= @training_class.master_teacher.name || "未指定" %></p>
         </div>
-      </div>
-      <div class="row m-r-0">
-        <div class="col-sm-4">
-          <img src="/admin/assets/global/images/profil_page/friend4.jpg" class="img-responsive" alt="friend 4">
-        </div>
-        <div class="col-sm-4">
-          <img src="/admin/assets/global/images/profil_page/friend5.jpg" class="img-responsive" alt="friend 5">
-        </div>
-        <div class="col-sm-4">
-          <img src="/admin/assets/global/images/profil_page/friend6.jpg" class="img-responsive" alt="friend 6">
-        </div>
-        <div class="col-sm-4">
-          <img src="/admin/assets/global/images/profil_page/friend7.jpg" class="img-responsive" alt="friend 7">
-        </div>
-        <div class="col-sm-4">
-          <img src="/admin/assets/global/images/profil_page/friend8.jpg" class="img-responsive" alt="friend 8">
+
+        <div class="col-sm-4 ">
         </div>
         <div class="col-sm-4 bg-primary more-friends">
           <span class="num-friends"><%= @training_class.students.count %></span>
           <p>学员</p>
         </div>
+
+        <% @training_class.subjects.each do |sub|  %>
+            <% next unless sub.teacher%>
+            <div class="col-sm-4 bg-primary more-friends">
+              <span class="num-friends"><%= sub.name %></span>
+              <p>
+              讲师
+              </p>
+              <p>  <%= sub.teacher.try(:name)%></p>
+            </div>
+        <% end %>
+
       </div>
     </div>
   </div>

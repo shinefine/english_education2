@@ -6,8 +6,6 @@ nv.addGraph(function() {
             .showControls(true)   //Allow user to switch between 'Grouped' and 'Stacked' mode.
             .groupSpacing(0.3)    //Distance between each group of bars.
             .staggerLabels(true)    //Too many bars and not enough room? Try staggering labels.
-            .showValues(true)
-
 
         ;
 

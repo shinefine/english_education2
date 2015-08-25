@@ -25,9 +25,9 @@
 
 $(function(){
 
-    $('.special.cards .image').dimmer({
-        on: 'hover'
-    });
+//    $('.special.cards .image').dimmer({
+//        on: 'hover'
+//    });
 
     $('.message .close')
         .on('click', function() {
@@ -36,8 +36,8 @@ $(function(){
     ; //使得 消息提示条 具备 关闭 功能
 
     $('.ui.dropdown').dropdown();
-    $('.popup_stu_score').popup();
-    $('.popup_tip_button').popup();
+//    $('.popup_stu_score').popup();
+//    $('.popup_tip_button').popup();
     $('.ui.accordion')
         .accordion()
     ;
@@ -243,7 +243,7 @@ $(function(){
         .on('mouseenter', func_mouse_enter)
         .on('mouseleave', func_mouse_leave);
 
-    $('#menu').sidebar('attach events', '.launch.button, .launch.item');
+//    $('#menu').sidebar('attach events', '.launch.button, .launch.item');
 
 //    $('.left.sidebar').first().sidebar('attach events', '.toggle.button');
 //    $('.toggle.button').removeClass('disabled');

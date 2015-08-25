@@ -1,3 +1,4 @@
+
 <!--员工,学员,讲师都使用本视图来查看 培训班信息-->
 <div class="page-content page-thin">
 
@@ -25,13 +26,13 @@
       <thead>
         <tr>
           <th>名称</th>
-          <th>班级类型</th>
+
           <th>培训教材</th>
           <%if current_user.teacher?%>
             <th>讲授课程科目</th>
           <%end%>
           <th>班主任</th>
-          <th>学员数量</th>
+
           <th>模拟考试</th>
           <th>听写成绩</th>
           <th>考勤统计</th>
@@ -50,13 +51,14 @@
       <tbody>
         <% @training_classes.each do |training_class| %>
               <tr>
-                <% color = training_class.exam_type =='SAT'? 'orange' :'blue'%>
-                <td><%= link_to training_class.name, training_class , {class:"btn bg-#{color}"} %></td>
 
                 <td>
-                  <%=training_class.exam_type if training_class.training_class_type.blank?%>
-                  <%=training_class.training_class_type%>
+                  <%= link_to  training_class  do
+                   render partial: 'shared/training_class_infobox_widget',object: training_class,as: :training_class
+                  end %>
                 </td>
+
+
                 <td>
                   <%= simple_format(training_class.summary_text_book_names_list)%>
                 </td>
@@ -72,9 +74,7 @@
                   <%= link_to(training_class.master_teacher.try(:name), employee_path(training_class.master_teacher)) if training_class.master_teacher  %>
                 </td>
 
-                <td>
-                  <%= training_class.students.count %>人
-                </td>
+
 
                 <!--#link 培训班的模拟考,听写成绩,出勤信息-->
                 <%if current_user.employee?||current_user.teacher? %>

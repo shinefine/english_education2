@@ -13,22 +13,22 @@
   <div class="user-image">
     <img src="/admin/assets/global/images/profil_page/friend8.jpg" class="img-responsive img-circle" alt="friend 8">
   </div>
-  <h4>Bryan Raynolds</h4>
+  <h4><%= current_user.name %></h4>
   <div class="dropdown user-login">
     <button class="btn btn-xs dropdown-toggle btn-rounded" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" data-delay="300">
-      <i class="online"></i><span>Available</span> <i class="fa fa-angle-down"></i>
+      <i class="online"></i><span>在线</span> <i class="fa fa-angle-down"></i>
     </button>
     <ul class="dropdown-menu">
       <li>
-        <a href="#"><i class="busy"></i><span>Busy</span></a>
+        <a href="#"><i class="busy"></i><span>忙碌</span></a>
       </li>
       <li>
         <a href="#"><i class="turquoise"></i>
-          <span>Invisible</span></a>
+          <span>隐身</span></a>
       </li>
       <li>
         <a href="#"><i class="away"></i>
-          <span>Away</span></a>
+          <span>离开</span></a>
       </li>
     </ul>
   </div>
@@ -50,10 +50,12 @@
   <!--输出导航项-->
 <ul class="nav nav-sidebar">
 
-  <% nav_menus =nav_menu_items %>
+  <% nav_menus =nav_menu_items
+     menu_item_icons=nav_menu_item_icons
+  %>
   <% nav_menus.each do |key,value| %>
       <li class="nav-parent">
-        <a href="#"><i class="icon-puzzle"></i><span><%= key %></span> <span class="fa arrow"></span></a>
+        <a href="#"><i class="<%= menu_item_icons[key]%>"></i><span><%= key %></span> <span class="fa arrow"></span></a>
 
         <% if value.any? %>
             <ul class="children collapse">
@@ -66,9 +68,11 @@
         <% end %>
   <% end %>
 </ul>
+
+<%if nil%>
 <!-- SIDEBAR WIDGET FOLDERS -->
 <div class="sidebar-widgets">
-  <p class="menu-title widget-title">Statistics <span class="pull-right"><a href="#" class="hide-widget"> <i class="icons-office-52"></i></a></span></p>
+  <p class="menu-title widget-title">统计 <span class="pull-right"><a href="#" class="hide-widget"> <i class="icons-office-52"></i></a></span></p>
   <div class="charts-sidebar progress-chart">
     <div class="sidebar-charts-inner">
       <div class="clearfix">
@@ -107,6 +111,7 @@
   <a class="pull-left" href="user-lockscreen.html" data-rel="tooltip" data-placement="top" data-original-title="Lockscreen">
     <i class="icon-lock"></i></a>
 </div>
+<%end%>
 </div>
 </div>
 

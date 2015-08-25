@@ -2,20 +2,26 @@
 <!--如果是校长,员工查看本页面,则可以看到所有科目成绩,以及进行所有操作-->
 <!--如果是讲师,则讲师只能看到自己负责科目的学员模考成绩-->
 
-<h1></h1>
+<div class="page-content page-thin">
 
-<div class="ui green horizontal label"><h2>[<%=@training_class.exam_type %>培训班]<%=@training_class.name %> 模考成绩列表</h2></div>
-<br>
-<br>
+<h2>
+  <span class="label theme-color-label">[<%=@training_class.exam_type %>培训班]<%=@training_class.name %> 模考成绩列表</span></h2>
 
-<div class="ui purple horizontal label">[模拟考]<%=@examination.name %> <%=@examination.id %></div>
-<br><br>
-<div class="ui purple horizontal label">[试卷]<%= @examination.test_paper.name %></div>
-<br><br>
-<div class="ui purple horizontal label">[考试时间]<%= @examination.test_date %></div>
-<br><br>
-<div class="ui purple horizontal label">[学员数量]<%= @training_class.students.count %>人</div>
-<br><br>
+
+  <p>
+
+  <span class="label theme-color-label">[模拟考]<%=@examination.name %> <%=@examination.id %></span>
+  </p>
+<p>
+<span class="label theme-color-label">[试卷]<%= @examination.test_paper.name %></span>
+</p>
+  <p>
+ <span class="label theme-color-label">[考试时间]<%= @examination.test_date %></span>
+  </p>
+  <p>
+ <span class="label theme-color-label">[学员数量]<%= @training_class.students.count %>人</span>
+  </p>
+
 <h3>成绩列表:</h3>
 
 <script>
@@ -44,9 +50,10 @@
 
 <%end%>
 
-<%= link_to '返回到班级模考 列表', training_class_examinations_path(@training_class) , {class:"ui blue  button"}%>
-<%= link_to '返回到班级列表', training_classes_path , {class:"ui blue  button"}%>
+<%= link_to '返回到班级模考 列表', training_class_examinations_path(@training_class) , {class:"btn btn-primary"}%>
+<%= link_to '返回到班级列表', training_classes_path , {class:"btn btn-primary"}%>
 
 <script src="/assets/multiBar.js"></script>
 
 
+</div>

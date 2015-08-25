@@ -1,4 +1,4 @@
-<!--本局部试图属于 index_for_all_students.html.erb ,用于显示所有学员的某次特定模拟考试的(SAT)成绩列表-->
+<!--本局部视图属于 index_for_all_students.html.erb ,用于显示所有学员的某次特定模拟考试的(SAT)成绩列表-->
 
 <table class ="ui celled table segment">
   <thead>
@@ -98,7 +98,6 @@
                  link_to(edit_student_examination_score_path(student,@examination,score) ,{class:'ui green icon button popup_tip_button',"data-content"=>"修改#{student.name}的模拟考试成绩"}) do
                    raw( '<i class="edit icon"> </i>')
                  end
-
                end
             %>
             </td>

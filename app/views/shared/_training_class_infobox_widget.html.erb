@@ -1,0 +1,20 @@
+<div class="widget-infobox ">
+  <div class="infobox">
+
+        <div class="left">
+          <% color = training_class.exam_type =='SAT'? 'bg-orange' :'bg-blue'%>
+          <i class="fa fa-stack-overflow <%= color %>"></i>
+        </div>
+        <div class="right">
+          <div>
+            <span class="c-primary pull-left"> <%= training_class.name %></span>
+            <span class="c-red pull-right" style="padding-left: 10px;"> <%= training_class.students.count %>人</span>
+          </div>
+          <div class="txt">
+            <%= training_class.training_class_type || training_class.exam_type %>
+          </div>
+
+        </div>
+
+  </div>
+</div>

@@ -79,9 +79,12 @@
         </td>
         <td>
 
-          <%summary_info =summary_student_joined_training_class_names_list(student) %>
 
-          <%=raw build_accordion_block("已参加班级 "+summary_info[0].to_s,summary_info[1]) %>
+
+            <%= render partial: 'shared/accordion_block', object: student,as: :student%>
+
+
+
 
 
 
@@ -142,7 +145,7 @@
 <%= paginate @students %>
 
 <%if current_user.employee?%>
-<%= link_to '新建学员', new_student_path,{class: 'ui blue button'} %>
+<%= link_to '新建学员', new_student_path,{class: "btn btn-primary"} %>
 <%end%>
 
 </div>

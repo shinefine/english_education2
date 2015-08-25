@@ -15,6 +15,7 @@ class ScoresController < ApplicationController
       @examinations =@training_class.examinations
       @scores=@student.scores
 
+      # render layout:'application2', template: 'scores/index_with_all_examinations'
       render 'index_with_all_examinations'
 
     elsif (params[:examination_id]) #指定了某次模考,则index 呈现关于此次模考所有有此模考成绩(所有学员的)
@@ -22,6 +23,7 @@ class ScoresController < ApplicationController
       @training_class =@examination.training_class
       @training_class_students =@training_class.students
       @scores=@examination.scores
+      # render layout:'application2', template:  'scores/index_for_all_students'
       render 'index_for_all_students'
     else #默认情况下,则呈现数据库的所有 score 记录
 

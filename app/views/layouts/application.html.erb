@@ -1,4 +1,4 @@
-
+<!--Make 布局模板-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +7,7 @@
   <meta name="description" content="admin-themes-lab">
   <meta name="author" content="themes-lab">
   <link rel="shortcut icon" href="/admin/assets/global/images/favicon.png" type="image/png">
-  <title>Make Admin Template &amp; Builder</title>
+  <title>Welcome</title>
 
   <%= yield :temp_css_for_semantic%>
 
@@ -15,16 +15,32 @@
   <link href="/admin/assets/global/css/theme.css" rel="stylesheet">
   <link href="/admin/assets/global/css/ui.css" rel="stylesheet">
   <link href="/admin/assets/admin/layout2/css/layout.css" rel="stylesheet">
+
   <style>
       table {
           /*表格背景透明*/
           background-color: rgba(255, 255, 255, 0.4) !important;
       }
+
+      .panel-accordion .panel  a:not(.collapsed) {
+          background-color: #b0ebff;
+      }
+      .panel-accordion .panel  a.collapsed {
+          background-color: #698ECC;
+      }
+
   </style>
+
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+
   <!-- BEGIN PAGE STYLE -->
-    <%yield :page_css%>
+  <!--输出页面特定的css文件-->
+    <%= yield :page_css%>
   <!-- END PAGE STYLE -->
   <!--<script src="/admin/assets/global/plugins/modernizr/modernizr-2.6.2-respond-1.1.0.min.js"></script>-->
+
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
 </head>
 <!-- LAYOUT: Apply "submenu-hover" class to body element to have sidebar submenu show on mouse hover -->
 <!-- LAYOUT: Apply "sidebar-collapsed" class to body element to have collapsed sidebar -->
@@ -51,7 +67,7 @@
 <!-- BEGIN BODY -->
 <body class="sidebar-condensed fixed-topbar fixed-sidebar theme-sdtl color-default dashboard">
 <!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<p class="browsehappy">您使用的是 <strong>过期的</strong> 老浏览器. 请 <a href="http://browsehappy.com/">安装最新版本的浏览器</a>以便体验采用新技术开发的网站</p>
 <![endif]-->
 <section>
 <!-- BEGIN SIDEBAR -->
@@ -66,9 +82,11 @@
     <a class="menutoggle" href="#" data-toggle="sidebar-collapsed"><span class="menu__handle"><span>Menu</span></span></a>
     <ul class="nav nav-icons">
       <li><a href="#" class="toggle-sidebar-top"><span class="icon-user-following"></span></a></li>
+      <% if nil %>
       <li><a href="mailbox.html"><span class="octicon octicon-mail-read"></span></a></li>
       <li><a href="#"><span class="octicon octicon-flame"></span></a></li>
       <li><a href="builder-page.html"><span class="octicon octicon-rocket"></span></a></li>
+      <% end %>
     </ul>
   </div>
 </div>
@@ -79,17 +97,14 @@
 <li class="dropdown" id="language-header">
   <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
     <i class="icon-globe"></i>
-    <span>Language</span>
+    <span>语言</span>
   </a>
   <ul class="dropdown-menu">
     <li>
       <a href="#" data-lang="en"><img src="/admin/assets/global/images/flags/usa.png" alt="flag-english"> <span>English</span></a>
     </li>
     <li>
-      <a href="#" data-lang="es"><img src="/admin/assets/global/images/flags/spanish.png" alt="flag-english"> <span>Español</span></a>
-    </li>
-    <li>
-      <a href="#" data-lang="fr"><img src="/admin/assets/global/images/flags/french.png" alt="flag-english"> <span>Français</span></a>
+      <a href="#" data-lang="es"><img src="/admin/assets/global/images/flags/chinese.png" alt="flag-english"> <span>中文</span></a>
     </li>
   </ul>
 </li>
@@ -269,7 +284,7 @@
       <a href="#"><i class="icon-user"></i><span>个人档案</span></a>
     </li>
     <li>
-      <a href="#"><i class="icon-calendar"></i><span>我的</span></a>
+      <a href="#"><i class="icon-calendar"></i><span>我的...</span></a>
     </li>
     <li>
       <a href="#"><i class="icon-settings"></i><span>账户设置</span></a>
@@ -785,13 +800,15 @@
 </div>
 <!-- END PRELOADER -->
 <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
-<script src="/admin/assets/global/plugins/jquery/jquery-1.11.1.min.js"></script>
+
+
+<!--<script src="/admin/assets/admin/plugins2/jquery/jquery-1.11.1.min.js"></script>-->
 
 <script src="/admin/assets/global/plugins/jquery-ui/jquery-ui-1.11.2.min.js"></script>
 <!--<script src="/admin/assets/global/plugins/jquery/jquery-migrate-1.2.1.min.js"></script>-->
 
 <!--<script src="/admin/assets/global/plugins/gsap/main-gsap.min.js"></script>-->
-<script src="/admin/assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/admin/assets/admin/plugins2/bootstrap/js/bootstrap.min.js"></script>
 
 <script src="/admin/assets/global/plugins/jquery-block-ui/jquery.blockUI.min.js"></script> <!-- simulate synchronous behavior when using AJAX -->
 <script src="/admin/assets/global/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script> <!-- Animated Progress Bar -->
