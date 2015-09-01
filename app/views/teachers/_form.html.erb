@@ -1,3 +1,6 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
 <%= simple_form_for(@teacher) do |f| %>
     <%= f.error_notification %>
 
@@ -40,10 +43,13 @@
 
 
     <div class="form-actions">
-      <%= f.button :submit ,'保存',inner_html: {class:"ui blue submit button"} %>
+      <%= f.button :submit ,'保存',inner_html: {class:"btn btn-primary"} %>
 
       <%if current_user.can_manage_basic_data?%>
-        <%= link_to '返回到讲师列表', teachers_path, {class:"ui blue submit button"} %>
+        <%= link_to '返回到讲师列表', teachers_path, {class:"btn btn-primary"} %>
       <%end%>
     </div>
 <% end %>
+    </div>
+  </div>
+</div>

@@ -28,16 +28,11 @@ class TeachersController < ApplicationController
   # POST /teachers.json
   def create
     @teacher = Teacher.new(teacher_params)
-
-
       if @teacher.save
         redirect_to teachers_url, notice: '讲师已创建.'
-
       else
         render :new
-
       end
-
   end
 
   # PATCH/PUT /teachers/1

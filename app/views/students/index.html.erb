@@ -1,5 +1,6 @@
 <div class="page-content page-thin">
 
+
   <% content_for :temp_css_for_semantic do %>
       <link rel="stylesheet" type="text/css" href="/semantic.min.css">
   <% end %>
@@ -7,12 +8,8 @@
       <script src="/semantic.min.js"></script>
   <% end %>
 
+  <%= render partial:'shared/page_title_caption',object: '学员列表' %>
 
-  <h2>
-  <span class="label theme-color-label">
-  学员列表
-  </span>
-  </h2>
 
 <div class="ui input">
   <%= form_tag search_students_path, method: 'get' do %>
@@ -78,17 +75,7 @@
           </div>
         </td>
         <td>
-
-
-
-            <%= render partial: 'shared/accordion_block', object: student,as: :student%>
-
-
-
-
-
-
-
+        <%= render partial: 'shared/accordion_block', object: student,as: :student%>
 
         </td>
         <td>

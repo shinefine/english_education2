@@ -8,18 +8,20 @@
   <% content_for :temp_js_for_semantic do %>
       <script src="/semantic.min.js"></script>
   <% end %>
-<h2>
-  <span class="label theme-color-label">
-   <%if current_user.employee?%>
-    培训班列表
-   <%elsif current_user.student?%>
-    学员<%=@student.name %>所属的培训班列表
-   <%elsif current_user.teacher?%>
-    讲师<%=@teacher.name %>所属的培训班列表
-   <%end%>
 
-  </span>
-</h2>
+
+   <%
+      if current_user.employee?
+        title='培训班列表'
+      elsif current_user.student?
+        title="学员#{@student.name} 所属的培训班列表"
+      elsif current_user.teacher?
+        title="讲师#{teacher.name}所属的培训班列表"
+      end
+   %>
+
+  <%= render partial:'shared/page_title_caption',object: title %>
+
 
 <%unless nil%>
     <table class ="ui celled collapsing table segment">

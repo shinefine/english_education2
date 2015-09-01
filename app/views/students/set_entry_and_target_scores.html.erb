@@ -1,8 +1,8 @@
-<h1></h1>
-<!---->
+<div class="page-content page-thin">
 
-<div class="ui horizontal green label"><h2>输入学员<%=@student.name%>的入口成绩和目标成绩</h2></div>
-<%= simple_form_for @student,wrapper: :semantic do |f| %>
+<%= render partial:'shared/page_title_caption',object: "输入学员#{@student.name}的入口成绩和目标成绩" %>
+
+<%= simple_form_for @student do |f| %>
 
     <%= f.fields_for(:real_scores) do |target_score| %>
 
@@ -90,3 +90,4 @@
       <%end%>
     </div>
 <% end %>
+</div>
