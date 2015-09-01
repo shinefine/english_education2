@@ -1,5 +1,7 @@
-<h1></h1>
-<div class="ui green horizontal label"><h2>创建 班级<%= @training_class.name%>的模考 </h2></div>
+<div class="page-content page-thin">
+  <%= render partial: 'shared/page_title_caption', object: "创建培训班#{@training_class.name } 的模拟考 " %>
+
 <%= render 'form' %>
 
 <%= link_to '返回到班级模考 列表', training_class_examinations_path(@training_class),{class: 'ui blue button'} %>
+</div>

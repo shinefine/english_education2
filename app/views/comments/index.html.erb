@@ -1,7 +1,8 @@
-<h1></h1>
-<div class="ui green horizontal label"><h2> 对学员 <%=@student.name %>  的评语</h2></div>
 
-<br>
+
+<div class="page-content page-thin">
+  <%= render partial: 'shared/page_title_caption', object: "对学员 #{@student.name} 的评语" %>
+
 <br>
 <div class="ui green label">
   评语列表
@@ -60,3 +61,4 @@
             training_classes_path(),
             {class:"ui blue  button"}
 %>
+</div>

@@ -1,6 +1,8 @@
 
-<h1></h1>
-<div class="ui green horizontal label"><h2>学员<%=@student.name %>在培训班 <%=@training_class.name %> 的考勤情况</h2>
+<div class="page-content page-thin">
+  <%= render partial: 'shared/page_title_caption', object: "学员#{@student.name }在培训班 #{@training_class.name} 的考勤情况" %>
+
+  <div class="ui green horizontal label"><h2>学员<%=@student.name %>在培训班 <%=@training_class.name %> 的考勤情况</h2>
   <h4>
     <%= helper__summary_text_attendance_for_student_in_training_class(@student,@training_class) %>
   </h4>
@@ -75,3 +77,4 @@
 
 
 <%=link_to '返回到我的培训班列表', training_classes_path,{class:'ui blue button'} %>
+</div>

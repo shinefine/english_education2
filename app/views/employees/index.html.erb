@@ -9,11 +9,8 @@
   <% end %>
 
 
-  <h2>
-  <span class="label theme-color-label">
-    员工列表
-  </span>
-  </h2>
+<%= render partial: 'shared/page_title_caption', object: "员工列表" %>
+
 <h3>共有员工 <%= @employees.length %> 人</h3>
 
 <table class="ui celled table segment">

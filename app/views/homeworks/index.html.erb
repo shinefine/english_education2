@@ -1,9 +1,8 @@
 
-<h1></h1>
 <!--该 模考的index 页面 不是展示所有作业记录,而是针对指定培训班展示其对应的作业记录-->
-<div class="ui green horizontal label"><h2> 培训班<%=@training_class.name %> 的作业列表</h2></div>
-<br>
-<br>
+
+<div class="page-content page-thin">
+  <%= render partial: 'shared/page_title_caption', object: "培训班#{@training_class.name}的作业列表 " %>
 
 <div class="ui purple horizontal label"> 培训班有学员<%= @training_class.students.count%>人</div>
 
@@ -105,3 +104,4 @@
 <% end %>
 <br>
 <%= link_to '返回到班级列表', training_classes_path , {class:"ui blue  button"}%>
+</div>

@@ -1,5 +1,6 @@
 <h1>Listing articles</h1>
 
+
 <div id="tag_cloud">
   <% tag_cloud Article.tag_counts, %w{small_tag middle_tag large_tag} do |tag, css_class| %>
       <%= link_to tag.name, tag_articles_path(tag.name), class: css_class %>

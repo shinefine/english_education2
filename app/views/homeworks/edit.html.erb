@@ -1,8 +1,10 @@
-<h1></h1>
 
-<h1></h1>
-<div class="ui green horizontal label"><h2> 修改 班级<%= @training_class.name%>的作业</h2></div>
+<div class="page-content page-thin">
+  <%= render partial: 'shared/page_title_caption', object: "修改班级#{@training_class.name}的作业 " %>
+
+  <div class="ui green horizontal label"><h2> 修改 班级<%= @training_class.name%>的作业</h2></div>
 <%= render 'form' %>
 
-<%= link_to '返回到班级作业 列表', training_class_homeworks_path(@training_class) ,{class: 'ui blue button'}%>
+<%= link_to '返回到班级作业 列表', training_class_homeworks_path(@training_class) ,{class: 'btn btn-primary'}%>
 
+</div>

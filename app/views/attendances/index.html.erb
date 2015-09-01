@@ -1,5 +1,8 @@
-<h1></h1>
-<div class="ui green horizontal label"><h2> 培训班<%=@training_class.name %> 的考勤</h2></div>
+
+
+<div class="page-content page-thin">
+  <%= render partial: 'shared/page_title_caption', object: "培训班#{@training_class.name } 的考勤" %>
+
 <table class ="ui padded table segment">
   <thead>
     <tr>
@@ -32,4 +35,5 @@
     <%= link_to '创建考勤信息', new_training_class_attendance_path(@training_class),{class:'ui blue button'} %>
 <%end%>
 <br>
-<%= link_to '返回到班级列表', training_classes_path , {class:"ui blue  button"}%>
+<%= link_to '返回到班级列表', training_classes_path , {class:"btn btn-primary"}%>
+</div>

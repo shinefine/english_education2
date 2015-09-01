@@ -1,10 +1,11 @@
-<h1></h1>
-<p id="notice"><%= notice %></p>
+<div class="page-content page-thin">
+  <%= render partial: 'shared/page_title_caption', object: '培训班教材' %>
 
 <p>
   <strong>Name:</strong>
   <%= @text_book.name %>
 </p>
 
-<%= link_to 'Edit', edit_text_book_path(@text_book) %> |
-<%= link_to 'Back', text_books_path %>
+<%= link_to '编辑', edit_text_book_path(@text_book) %> |
+<%= link_to '返回', text_books_path %>
+</div>
