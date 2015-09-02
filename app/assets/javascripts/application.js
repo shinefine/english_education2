@@ -19,6 +19,7 @@
 //= require stream_layers
 //= require articles
 //= require image_preview_before_upload
+//= require select2
 //-----ssssddd----require semantic-ui
 
 

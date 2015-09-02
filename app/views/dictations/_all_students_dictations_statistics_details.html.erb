@@ -1,0 +1,22 @@
+<%dictation = all_students_dictations_statistics_details %>
+<% passline= dictation.passing_line || 0 %>
+
+<% dictation.dictation_scores.map do |dict_score| %>
+<% __score= dict_score.score || -1 %>
+<% stu_name_and_dict_score =dict_score.student.name + "(#{__score})" %>
+    <div>
+    <% if __score > passline #听写不合格的学员%>
+        <label class="btn-danger label">
+          <%= stu_name_and_dict_score %>
+        </label>
+    <% elsif __score < 0  #没有听写成绩(未听写)的学员 %>
+        <label class="btn-default label">
+          <%= dict_score.student.name + "(未听写)" %>
+        </label>
+    <% else #听写合格的学员 %>
+        <label class="btn-success label">
+          <%= stu_name_and_dict_score %>
+        </label>
+    <% end %>
+    </div>
+<% end %>

@@ -1,7 +1,9 @@
-source 'https://rubygems.org'
-#source 'https://ruby.taobao.org'
+#source 'https://rubygems.org'
+source 'https://ruby.taobao.org'
 
 #---------------------系统功能---------------------
+gem 'select2-rails'
+
 
 #图片上传功能,若需要缩放图片,则需依赖mini_magick gem
 gem 'carrierwave','0.10.0'

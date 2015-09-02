@@ -581,6 +581,7 @@
   background: #181a1d;
 }
 .theme-sdtd.color-default.sidebar-hover .topnav .logopanel2,
+.theme-sdtl.color-default .theme-color-label,
 .theme-sdtd.color-default .topbar {
   background: #181a1d;
   border-bottom: none!important;
@@ -588,6 +589,7 @@
 .theme-sdtd.color-default .topbar a,
 .theme-sdtd.color-default .topbar > div > ul > li > a > i,
 .theme-sdtd #quickview-toggle i,
+.theme-sdtl.color-default .theme-color-label,
 .theme-sdtd.color-default .topbar .header-left .topnav > ul > li > a,
 .theme-sdtd.color-default .topbar .header-right .header-menu #notifications-header > a > i,
 .theme-sdtd.color-default .topbar .header-right .header-menu #language-header a,
@@ -1392,6 +1394,7 @@
   background: #181a1d;
   border-bottom: none!important;
 }
+
 .theme-sltd.color-default .topbar .header-left .topnav > ul > li.active > a::before,
 .theme-sltd.color-default .topbar .header-left .topnav > ul > li.open > a::before,
 .theme-sltd.color-default .topbar .header-left .topnav > ul > li > a:hover::before,

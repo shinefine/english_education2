@@ -5,26 +5,6 @@ module ApplicationHelper
 
   end
 
-  def build_accordion_block(title="",content="",default_expand=false)
-    #生成html 折叠块 代码
-
-    active_str =default_expand ? ' active ' : ''
-
-    return '<div class="ui  basic vertical fluid accordion">
-    <!--基本信息-->
-
-    <div class='+ active_str+'" title">
-    <i class="dropdown icon"></i>
-              <a class="ui teal circular large label">' + title + '</a>
-
-    </div>
-            <div class='+ active_str+'" content">'+
-     content +
-        '</div>
-    </div>'
-
-  end
-
 
   def nav_menu_item_icons()
     item_icons={

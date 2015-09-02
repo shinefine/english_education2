@@ -1,44 +1,44 @@
 <div class="page-content page-thin">
   <%= render partial: 'shared/page_title_caption', object: "培训班#{@training_class.name} 的听写成绩" %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <% index_counter =0 %>
+        <% @dictations.each do |dictation| %>
+            <% index_counter = index_counter+1 %>
+            <div class="row">
+              <div class="col-md-12">
+                <div>
+                  <span>
+                    <%= dictation.execute_date %> &nbsp;合格线:<%= dictation.passing_line %>
+                  </span>
+                </div>
 
-<table class="ui celled collapsing table segment">
-  <thead>
-    <tr>
-      <th>听写日期</th>
-      <th>听写结果</th>
-      <%if current_user.is_training_class_master?(@training_class)%>
-        <th colspan="2"></th>
-      <%end%>
-    </tr>
-  </thead>
+                <% if current_user.is_training_class_master?(@training_class) %>
+                    <%= link_to "修改", edit_training_class_dictation_path(@training_class, dictation), {class: 'btn btn-success'} %></td>
+                    <%= link_to '删除听写信息', training_class_dictation_path(@training_class, dictation), {class: 'btn btn-danger', method: :delete, data: {confirm: '确定删除听写记录?'}} %>
+                <% end %>
+                <% summary_info =helper__summary_dictation_text(dictation) %>
 
-  <tbody>
-    <% @dictations.each do |dictation| %>
-      <tr>
-        <td><%= dictation.execute_date %></td>
-        <td>合格线:<%= dictation.passing_line %>
-            <br>
-          <%summary_info =helper__summary_dictation_text(dictation)%>
+                <div data-remark="输出折叠项">
+                  <% accordion_id ="accordion_#{index_counter}" %>
+                  <!--某天的所有学员听写情况统计-->
+                  <% content_for "#{accordion_id}_item_1".to_sym do %>
+                      <%= render partial: 'all_students_dictations_statistics_details', object: dictation %>
+                  <% end %>
+                  <%= render 'shared/compoment_template_accordion', object: {accordion_id: accordion_id, item_titles: ["#{summary_info}"]} %>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-          <%=raw build_accordion_block(summary_info[0],summary_info[1]) %>
-        </td>
 
-
-        <%if current_user.is_training_class_master?(@training_class)%>
-            <td><%= link_to "修改", edit_training_class_dictation_path(@training_class, dictation), {class:'ui green button' }  %></td>
-            <td><%= link_to '删除听写信息', training_class_dictation_path(@training_class,dictation), {class:'ui red button' ,method: :delete, data: { confirm: 'Are you sure?' }} %></td>
-        <%end%>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<%if current_user.is_training_class_master?(@training_class)%>
-    <%= link_to '创建听写成绩', new_training_class_dictation_path(@training_class) ,{class:'ui blue button'}%>
-    <br>
-<%end%>
-
-<%= link_to '返回到班级列表', training_classes_path , {class:"ui blue  button"}%>
-
+  <br>
+  <% if current_user.is_training_class_master?(@training_class) %>
+      <%= link_to '创建听写成绩', new_training_class_dictation_path(@training_class), {class: 'btn btn-primary'} %>
+      <br>
+  <% end %>
 </div>

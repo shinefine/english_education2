@@ -1,6 +1,6 @@
 <div class="page-content page-thin">
 
-  <%= render partial: 'shared/page_title_caption', object: "设置已做试卷" %>
+  <%= render partial: 'shared/page_title_caption', object: "设置#{@student.name}已做过的试卷" %>
 
 
   <div class="container">
@@ -9,44 +9,20 @@
 
         <%= simple_form_for @student do |f| %>
 
-            <div data-remark="输出折叠项">
-            <!--已做过的TOEFL试卷-->
-            <%content_for :accordion_item_1 do %>
-                <div class="field">
-                  <%= collection_check_boxes(:student,
-                                             :test_paper_ids,
-                                             TestPaper.where(exam_type: 'TOEFL'),
-                                             :id,
-                                             :name, {}, {class: 'ui'}) do |b| %>
-                      <div class='ui slider checkbox'>
-                        <%= b.check_box + b.label %>
-                      </div>
-                  <% end %>
-                </div>
-            <%end%>
-              <!--已做过的SAT试卷-->
-            <%content_for :accordion_item_2 do %>
-                <div class="field">
-                  <%= collection_check_boxes(:student,
-                                             :test_paper_ids,
-                                             TestPaper.where(exam_type: 'SAT'),
-                                             :id,
-                                             :name, {}, {class: 'ui'}) do |b| %>
-                      <div class='ui slider checkbox'>
-                        <%= b.check_box + b.label %>
-                      </div>
-                  <% end %>
-                </div>
-            <%end%>
+            <div class="field">
+              <%=f.input :test_paper_ids,label:'TOEFL', collection: TestPaper.where(exam_type: 'TOEFL'), input_html:{id:'multiple_select_toefl_testpaper' ,multiple: ''},wrapper:false%>
 
-            <%= render 'shared/compoment_template_accordion',object: {accordion_id: 'accordion',item_titles:['已做过的TOEFL试卷','已做过的SAT试卷']}%>
             </div>
+            <div class="field">
+              <%=f.input :test_paper_ids,label:'SAT', collection: TestPaper.where(exam_type: 'SAT'), input_html:{id:'multiple_select_sat_testpaper' ,multiple: ''},wrapper:false%>
 
+            </div>
 
             <div class="form-actions">
               <%= f.button :submit, "保存" %>
             </div>
         <% end %>
+
       </div>
     </div>
   </div>

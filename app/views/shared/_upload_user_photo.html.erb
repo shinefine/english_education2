@@ -1,10 +1,34 @@
+<div class="fileinput fileinput-new" data-provides="fileinput">
+  <p><strong>头像</strong></p>
+
+  <div class="fileinput-new thumbnail">
+    <%=
+        image_tag @user.photo_url,id:"image_photo_preview",data:{src:""},class:"img-responsive"
+    %>
+
+  </div>
+  <div class="fileinput-preview fileinput-exists thumbnail" style="line-height: 10px;"></div>
+  <div>
+                             <span class="btn btn-primary btn-file">
+                              <span class="fileinput-new">设置</span>
+                              <span class="fileinput-exists">更改</span>
+
+                               <%= form_builder.hidden_field  :photo_cache %>
+                              <input id="student_user_attributes_photo" name="student[user_attributes][photo]" type="file" />
+
+                            </span>
+    <a href="#" class="btn btn-primary fileinput-exists" data-dismiss="fileinput">取消</a>
+  </div>
+</div>
 
 
+
+<% if nil #如果不是使用bootstrap框架,那么下面是自己写的图片上传功能,需要image_preview_before_upload.js 文件配合%>
 <%= form_builder.label :photo,'照片' %>
 <%=
     image_tag @user.photo_url,id:"image_photo_preview"
 %>
 
-
 <%= form_builder.file_field :photo %>
 <%= form_builder.hidden_field  :photo_cache %>
+<% end %>

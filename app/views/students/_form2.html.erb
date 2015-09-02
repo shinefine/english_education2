@@ -128,10 +128,7 @@
 
 
               <div class="form-actions">
-                <%= f.button :submit, '保存' %>
-                <% if current_user.can_manage_basic_data? %>
-                    <%= link_to '返回到学员列表', students_path %>
-                <% end %>
+                <%= f.button :submit, '保存',{class:'btn btn-primary'} %>
               </div>
 
           <% end %>

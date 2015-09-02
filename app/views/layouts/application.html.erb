@@ -791,6 +791,7 @@
 <% end %>
 <!-- END SEARCH -->
 <!-- BEGIN PRELOADER -->
+<% if nil %>
 <div class="loader-overlay">
   <div class="spinner">
     <div class="bounce1"></div>
@@ -798,6 +799,8 @@
     <div class="bounce3"></div>
   </div>
 </div>
+
+<% end %>
 <!-- END PRELOADER -->
 <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
 
@@ -809,7 +812,7 @@
 
 <!--<script src="/admin/assets/global/plugins/gsap/main-gsap.min.js"></script>-->
 <script src="/admin/assets/admin/plugins2/bootstrap/js/bootstrap.min.js"></script>
-
+<script src="/admin/assets/admin/plugins2/bootstrap/js/jasny-bootstrap.min.js"></script>
 <script src="/admin/assets/global/plugins/jquery-block-ui/jquery.blockUI.min.js"></script> <!-- simulate synchronous behavior when using AJAX -->
 <script src="/admin/assets/global/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script> <!-- Animated Progress Bar -->
 
@@ -829,9 +832,8 @@
 <%if  nil #屏蔽这些js%>
     <script src="/admin/assets/global/plugins/bootstrap-dropdown/bootstrap-hover-dropdown.min.js"></script> <!-- Show Dropdown on Mouseover -->
     <script src="/admin/assets/global/plugins/charts-sparkline/sparkline.min.js"></script> <!-- Charts Sparkline -->
+    <script src="/admin/assets/admin/plugins2/select2/select2.min.js"></script> <!-- Select Inputs -->
 
-    <script src="/admin/assets/global/plugins/retina/retina.min.js"></script> <!-- Retina Display -->
-    <script src="/admin/assets/global/plugins/select2/select2.min.js"></script> <!-- Select Inputs -->
     <script src="/admin/assets/global/plugins/icheck/icheck.min.js"></script> <!-- Checkbox & Radio Inputs -->
     <script src="/admin/assets/global/plugins/backstretch/backstretch.min.js"></script> <!-- Background Image -->
     <script src="/admin/assets/global/js/widgets/notes.js"></script> <!-- Notes Widget -->

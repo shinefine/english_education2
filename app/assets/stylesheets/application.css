@@ -14,7 +14,10 @@
  *= require chosen
  *= require_self
  *= require jquery-ui/dark-hive
+ *= require select2-bootstrap
  */
 
 
-/*----bbb---require semantic-ui*/
+.panel-accordion a.btn {
+    padding: 8px 24px 8px;
+}

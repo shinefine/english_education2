@@ -1,44 +1,44 @@
 <% exam_type = object[:exam_type] %>
-<table class="ui celled collapsing table">
-  <thead>
-  <tr>
-    <th>真实考试成绩</th>
 
-    <th>入口成绩和期望成绩</th>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <label >真实考试成绩</label>
 
-  </tr>
-  </thead>
+      <div class="row">
+        <div class="col-md-12">
+          <%= render 'real_scores/show', {
+                  exam_type_filter: exam_type,
+                  var_real_scores: @student.real_scores.send(exam_type.downcase).true_real} %>
+        </div>
 
-  <tbody>
-  <tr>
-    <td>
-      <%= render 'real_scores/show', {
-              exam_type_filter: exam_type,
-              var_real_scores: @student.real_scores.send(exam_type.downcase).true_real} %>
-    </td>
-    <td>
-      <%= render 'real_scores/show', {
-              exam_type_filter: exam_type,
-              var_real_scores: @student.real_scores.send(exam_type.downcase).entry_and_target_and_month_target} %>
-
-    </td>
-
-  </tr>
-
-  <tr>
-    <td>
+      </div>
       <% if current_user.can_set_student_info?(@student) %>
-          <%= link_to "输入 #{exam_type} 真实考试成绩", set_real_scores_student_path(@student, exam_type: exam_type, score_type: 'true_real'), {class: 'ui green button'} %>
-
+      <div class="row">
+        <div class="col-md-3">
+            <%= link_to "输入 #{exam_type}真实考试成绩", set_real_scores_student_path(@student, exam_type: exam_type, score_type: 'true_real'), {class: 'btn btn-primary'} %>
+        </div>
+      </div>
       <% end %>
-    </td>
-    <td>
+    </div>
+
+    <div class="col-md-12">
+      <label >入口成绩和期望成绩</label>
+      <div class="row">
+        <div class="col-md-12">
+          <%= render 'real_scores/show', {
+                  exam_type_filter: exam_type,
+                  var_real_scores: @student.real_scores.send(exam_type.downcase).entry_and_target_and_month_target} %>
+        </div>
+
+      </div>
       <% if current_user.can_set_student_info?(@student) %>
-          <%= link_to "输入 #{exam_type}  入口成绩和目标成绩", set_entry_and_target_scores_student_path(@student, exam_type: exam_type, score_type: 'entry_and_target'), {class: 'ui green button'} %>
-
+          <div class="row">
+            <div class="col-md-3">
+              <%= link_to "输入 #{exam_type}  入口成绩和目标成绩", set_entry_and_target_scores_student_path(@student, exam_type: exam_type, score_type: 'entry_and_target'), {class: 'btn btn-primary'} %>
+            </div>
+          </div>
       <% end %>
-    </td>
-
-  </tr>
-  </tbody>
-</table>
+    </div>
+  </div>
+</div>
