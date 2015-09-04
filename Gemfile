@@ -1,5 +1,5 @@
-#source 'https://rubygems.org'
-source 'https://ruby.taobao.org'
+source 'https://rubygems.org'
+#source 'https://ruby.taobao.org'
 
 #---------------------系统功能---------------------
 gem 'select2-rails'
