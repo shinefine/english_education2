@@ -62,12 +62,25 @@
               <%if current_user.can_view_student_personal_info? %>
                   <div class="description">
 
-                    <i class="yellow qq icon large"></i><%= student.user.try(:qq_number) || "(无)" %>
-                    <i class="teal wechat icon large"></i><%= student.user.try(:tinypost_number) ||"(无)"  %>
-                    <br>
-                    <i class="mail outline icon large"></i>:<%= student.user.try(:email) || "(无)" %>
-                    <br>
-                    身份证:<%= student.user.try(:identify_card) || "(无)" %>
+                    <p>
+                    <span>QQ号:<%= student.user.try(:qq_number) || "(无)" %></span>
+                    </p>
+                    <p>
+                    <span>
+                    微信号:<%= student.user.try(:tinypost_number) ||"(无)"  %>
+                      </span>
+                    </p>
+                    <p>
+                    <span>
+
+                    邮箱:<%= student.user.try(:email) || "(无)" %></span>
+                    </p>
+                    <p>
+                    <span>
+
+                    身份证:<%= student.user.try(:identify_card) || "(无)" %></span>
+                    </p>
+
                   </div>
               <%end%>
             </div>
