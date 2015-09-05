@@ -46,14 +46,15 @@ module AttendanceHelper
     end
     return ''
   end
-  def helper__html_attendance_status_icon(status)
-    #返回用html文本表示的 考勤状态对应的图标
+  def helper__color_by_attendance_status(status)
+    # 考勤状态对应的颜色
 
-    color = 'green' if status =='出勤'
-    color = 'red' if status =='未出勤'
-    color = 'blue' if status =='迟到'
-    color = 'yellow' if status =='早退'
-    return "<div class=\"ui #{color} label\"> </div>"
+    color = 'btn-success' if status =='出勤'
+    color = 'btn-danger' if status =='未出勤'
+    color = 'btn-warning' if status =='迟到'
+    color = 'btn-info' if status =='早退'
+
+    return color
 
   end
 end

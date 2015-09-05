@@ -17,7 +17,7 @@
           <div class ="row">
           <%= render partial: 'shared/training_class_infobox_widget',object: @training_class,as: :training_class%>
 
-          <div class="profil-info"><i class="icon-call-end"></i>
+          <div class="profil-info"><i class="fa fa-calendar"></i>
             <strong>从 </strong>
             <%= @training_class.start_date %>
             <strong>到 </strong>
@@ -87,9 +87,10 @@
              <div class="item hover-effect">
                <div class="user">
                  <img src="/admin/assets/global/images/profil_page/pics1.jpg" class="img-responsive hover-img" alt="">
-                 <img src="/admin/assets/global/images/profil_page/friend<%= (1..8).to_a.sample %>.jpg" class="img-user" alt="picture 2">
+                 <!--<img src="/admin/assets/global/images/profil_page/friend<%= (1..8).to_a.sample %>.jpg" class="img-user" alt="picture 2">-->
 
-                 <%
+
+                 <%=
                      image_tag student.user.photo_url, class:"img-user",alt:"picture 2"
                  %>
                  <div class="info">
@@ -110,41 +111,37 @@
                            <%= link_to '个人详细信息' ,student_path(student) %>
                          </li>
                          <li>
-                           <%= link_to "真实成绩统计",index_with_all_examinations_student_real_scores_path(student,training_class_id:@training_class) %>
-                         </li>
-
-                         <li>
-                           <%= link_to "模考成绩统计",training_class_student_scores_path(@training_class,student) %>
-                         </li>
-                         <li>
-                           <%comments= helper_get_student_comments(student)%>
-                           <%= link_to "讲师评语(#{comments.count})",training_class_student_comments_path(@training_class,student)%>
-                         </li>
-
-                         <li>
                            <%= link_to "考勤统计",training_class_attendances_path(@training_class,student_id:student)%>
                          </li>
-
                          <li>
                            <%= link_to "听写成绩统计", training_class_dictations_path(@training_class,student_id:student) %>
                          </li>
 
                        </ul>
                      </div>
-                 <%end%>
+                 <% end %>
                </div>
                <div class="more">
                  <div class="row">
                    <div class="col-sm-4 like liked">
-                     <i class="fa fa-heart"></i> Like
+
+                       <%= link_to training_class_student_scores_path(@training_class,student) do %>
+                            <i class="fa fa-line-chart"></i> 模考成绩统计
+                       <% end %>
                    </div>
+
                    <div class="col-sm-4 more-comments">
                      <div class="comment-number">
-                       <i class="icon-bubble"></i> Comments <span class="pull-right badge badge-dark">6</span>
+                       <%comments= helper_get_student_comments(student)%>
+                       <%= link_to training_class_student_comments_path(@training_class,student) do%>
+                            <i class="icon-bubble"></i> 讲师评语 <span class="pull-right badge badge-dark"><%= "#{comments.count}" %></span>
+                       <% end %>
                      </div>
                    </div>
                    <div class="col-sm-4 more-share">
-                     <i class="icon-share"></i> Share
+                     <%= link_to index_with_all_examinations_student_real_scores_path(student,training_class_id:@training_class)  do %>
+                        <i class="fa fa-signal"></i> 真实成绩统计
+                     <% end %>
                    </div>
                  </div>
                </div>
@@ -378,9 +375,9 @@
 
 
     <%if current_user.can_set_training_class_info? %>
-        <%= link_to '修改', edit_training_class_path(@training_class),{class:'ui blue button'} %>
+        <%= link_to '修改', edit_training_class_path(@training_class),{class:'btn btn-primary'} %>
     <%end%>
-    <%= link_to '返回到培训班列表', training_classes_path ,{class:'ui blue button'}%>
+    <%= link_to '返回到培训班列表', training_classes_path ,{class:'btn btn-primary'}%>
 
 
 <% end %>
