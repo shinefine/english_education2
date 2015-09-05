@@ -34,19 +34,19 @@ class TrainingClass < ActiveRecord::Base
     #todo : optimal
     if(user.student?)
       @student =user.student
-      @training_classes=@student.training_classes
+      @training_classes=@student.training_classes.order(start_date: :desc)
     end
 
     if (user.teacher?)
       @teacher =user.teacher
-      @training_classes=@teacher.training_classes.distinct
+      @training_classes=@teacher.training_classes.distinct.order(start_date: :desc)
     end
 
     if (user.employee?)
       if user.can_set_training_class_info?  #管理员/校长
-        @training_classes = TrainingClass.all
+        @training_classes = TrainingClass.all.order(start_date: :desc)
       else
-        @training_classes =TrainingClass.where(master_teacher_id: user.employee.id )
+        @training_classes =TrainingClass.where(master_teacher_id: user.employee.id ).order(start_date: :desc)
       end
     end
   end
