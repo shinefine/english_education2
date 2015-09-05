@@ -6,7 +6,7 @@ class TrainingClassesController < ApplicationController
   # GET /training_classes.json
   def index
 
-    @training_classes = TrainingClass.users_training_classes(current_user)
+    @training_classes = TrainingClass.users_training_classes(current_user).order(start_date: :desc)
     @training_classes =Kaminari.paginate_array(@training_classes).page(params[:page]).per(10)
 
   end
@@ -25,18 +25,20 @@ class TrainingClassesController < ApplicationController
     @training_class.exam_type= params[:exam_type]
 
     set_training_class_types
+    set_employee_collection
     set_subject_types
     set_user_permission_students
-    render layout: 'application2'
+    render layout: 'application'
   end
 
 
   # GET /training_classes/1/edit
   def edit
     set_training_class_types
+    set_employee_collection
     set_subject_types
     set_user_permission_students
-    render layout:'application2'
+    render layout:'application'
 
   end
 
@@ -129,6 +131,11 @@ class TrainingClassesController < ApplicationController
     elsif(@training_class.exam_type=='TOEFL')
       @training_class_types =TrainingClassType.toefl_types
     end
+  end
+
+  def set_employee_collection
+    @employee_list_array = Employee.all.map { |emp|      [emp.name,emp.user.id]}
+
   end
 
   def set_subject_types

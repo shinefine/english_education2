@@ -54,7 +54,7 @@
       <div class="row m-r-0">
         <div class="col-sm-4 bg-red more-friends">
           <span class="num-friends">班主任:</span>
-          <p> <%= @training_class.master_teacher.name || "未指定" %></p>
+          <p> <%= @training_class.master_teacher.try(:name) || "未指定" %></p>
         </div>
 
         <div class="col-sm-4 ">
