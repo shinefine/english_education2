@@ -5,18 +5,12 @@ class TrainingClass < ActiveRecord::Base
   #学员可以属于多个培训班(同时培训班包含多个学员)
   has_and_belongs_to_many :students
 
-
-
   has_many :teachers ,through: :subjects
 
   has_many :examinations #一个班级能有多个模拟考试(按日期)
   has_many :dictations #一个班级能有多个听写测验(按日期)
   has_many :attendances #一个班级能有多个考勤情况(按日期)
   has_many :homeworks #班级的各个课程的讲师会布置作业。
-
-
-
-
 
   has_many :subjects
   accepts_nested_attributes_for :subjects  ,:reject_if => lambda { |a| a[:name].blank? },
@@ -30,23 +24,18 @@ class TrainingClass < ActiveRecord::Base
 
   #default_scope {order('start_date DESC')}
 
+  #返回用戶所屬的培訓班集合
   def self.users_training_classes(user)
     #todo : optimal
-    if(user.student?)
-      @student =user.student
-      @training_classes=@student.training_classes.order(start_date: :desc)
-    end
-
-    if (user.teacher?)
-      @teacher =user.teacher
-      @training_classes=@teacher.training_classes.distinct.order(start_date: :desc)
-    end
-
-    if (user.employee?)
+    if (user.student?)
+      user.student.training_classes.order(start_date: :desc)
+    elsif (user.teacher?)
+      user.teacher.training_classes.distinct.order(start_date: :desc)
+    elsif (user.employee?)
       if user.can_set_training_class_info?  #管理员/校长
-        @training_classes = TrainingClass.all.order(start_date: :desc)
+        TrainingClass.all.order(start_date: :desc)
       else
-        @training_classes =TrainingClass.where(master_teacher_id: user.employee.id ).order(start_date: :desc)
+        TrainingClass.where(master_teacher_id: user.employee.id ).order(start_date: :desc)
       end
     end
   end

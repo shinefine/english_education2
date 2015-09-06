@@ -14,7 +14,7 @@ class SessionController < ApplicationController
 
       login_result['login']  ='success'
       login_result['message']='成功登录,请稍候...'
-      login_result['jump_url']=training_classes_path
+      login_result['jump_url']=admin_home_page_index_path
     else
 
       login_result['login']  ='false'

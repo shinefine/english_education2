@@ -6,7 +6,13 @@ class TrainingClassesController < ApplicationController
   # GET /training_classes.json
   def index
 
-    @training_classes = TrainingClass.users_training_classes(current_user).order(start_date: :desc)
+    if(current_user.student?)
+      @student =current_user.student
+    elsif (current_user.teacher?)
+      @teacher =current_user.teacher
+    end
+
+    @training_classes = TrainingClass.users_training_classes(current_user)
     @training_classes =Kaminari.paginate_array(@training_classes).page(params[:page]).per(10)
 
   end
