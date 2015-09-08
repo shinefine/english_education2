@@ -27,17 +27,17 @@ $(document)
               prompt : '请输入账户名'
             }
           ]
-        },
-
-        password:{
-            identifier:'password',
-            rules:[
-                {
-                    type:'empty',
-                    prompt:'请输入密码'
-                }
-            ]
         }
+
+//        password:{
+//            identifier:'password',
+//            rules:[
+//                {
+//                    type:'empty',
+//                    prompt:'请输入密码'
+//                }
+//            ]
+//        }
       }
     ;
 
