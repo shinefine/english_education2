@@ -8,6 +8,8 @@
 #new-business-owner-360x224.jpg
 #students-recommend-360x224
 class HomePageData
+  Lecture_info = Struct.new(:name,:course_name,:intro_info)
+
   #教学报告
   def self.report1
     {
@@ -40,6 +42,100 @@ class HomePageData
     '学生自习情况'=>
     '我们一直认为授人与鱼不如授人以渔，先为学生安排自习计划，接下来学生根据自习计划进一步进行详细具体的自习内容安排，让学生逐步进入能自己学习的状态。学生自习情况检查：通过词测，练习题，写相关的essay等方式，学生自习情况良好，需要再帮学生高效利用时间。',
     }
+  end
+
+  #讲师介绍
+  def self.lectures_info
+
+    arr=[]
+
+    lecture = Lecture_info.new
+    arr<<lecture
+
+    lecture.name='Tommy'
+    lecture.course_name ='托福听力'
+    lecture.intro_info ='赛达1语法	美国加州大学戴维斯分校研究生主讲托福听力、SAT1语法，教学经验丰富，有耐心及责任心。
+    因为学生普遍为高中生，其中又多以成都各国际班学生为主，这些学生英文基础较差。TOEFL听力的学生们入口成绩差不多在１０分左右，最低有４分的成绩，经过培训课程结束后学生参加考试，除极个别考生发挥失常以外，学生成绩大部分在 ２０ 以上，高分段的有 ２７－３０。　
+    —另外擅长教授 ＳＡＴ1 语法，入口成绩：学生４９道题只能对 ２０ 个左右，经过培训后一般能达到 ３８ 个以上；基础较好学生可以达到 ４５ 个甚至全对。　'
+
+
+    lecture = Lecture_info.new
+    arr<<lecture
+    lecture.name='赵老师'
+    lecture.course_name ='托福听力口语'
+    lecture.intro_info ='雅思口语	高中时留学美国，本科就读于美国加州圣地亚哥州立大学主修教育语言学，硕士研究生毕业于四川师范大学外国语学院外语系。
+    教育专业科班出身，行业经验5年，在教学方面有自己独到的教学方法，对学生因材施教，深受学生喜爱，在听力和口语方面成绩提高明显，托福每月每科平均提分10-15分，雅思每月每科平均提分1-1.5分。'
+
+
+    lecture = Lecture_info.new
+    arr<<lecture
+    lecture.name='Sue 梁'
+    lecture.course_name ='托福雅思阅读'
+    lecture.intro_info ='雅思、托福、SAT、SSAT阅读金牌老师，8年教学经验，对阅读专项及语法教学有着丰富的经验及心得，清楚掌握雅思、托福，SAT考试趋势，对于考试方向把握，准确率非常高。担任教学总监职务多年，也曾任职于全国其他知名教育品牌教学总监。在多国进行过游学，深知国外教育，凭借多年的潜心总结，自创了独具个性的系统式授课模式，深受学生喜爱。
+    雅思学生在6节课的雅思阅读培训中，一战阅读单科6.5，二战8分。
+    雅思培训方面，14节课，学生单科阅读上了7分。
+    托福学生在3节课的培训课程后，阅读由21提升至27。
+    托福培训方面，在10节课里，学生单科阅读上了28分。'
+
+
+    lecture = Lecture_info.new
+    arr<<lecture
+    lecture.name='成玉娟'
+    lecture.course_name ='TOEFL 雅思 阅读写作'
+    lecture.intro_info =	'2009年从事雅思，托福培训工作，至今已有7年教学经验。主讲雅思和托福阅读，写作。工作一直认真严谨，教学态度一丝不苟，能够根据经验和学生的反馈制定相应的教学计划，并督促学生按照教学要求执行贯彻。对雅思，托福的阅读和写作有自己独到的见解，形成了独特的教学模式。不同水平，不同程度的学生搭配不同的教学模式，效果良好，帮助学生提高英语应用能力的同时提高学生分数，实现学生的留学梦想。同时，在教学工作中，尤其注重学生的反馈和意见，根据学生的反映情况及时调整教学方法和策略，重视与学生的沟通和交流，最大程度发挥学生的潜能。雅思阅读、写作每科每月平均提分1-1.5分，托福阅读、写作每科每月平均提分：5-10分。'
+
+
+    lecture = Lecture_info.new
+    arr<<lecture
+    lecture.name='王锦芳老师'
+    lecture.course_name ='托福、雅思听力口语'
+    lecture.intro_info ='至今已有6年教学经验，从事雅思，托福培训工作。
+    游学欧亚多国，熟知英语国家的人文风情。指导在校大学生参加“全国大学生英语竞赛”荣获一等奖。
+    主讲雅思和托福的听力和口语。
+    对雅思，托福的听力和口语有独创的的教学方法。
+    对学生因材施教，为人亲切，有耐心，专业知识扎实，责任心强。帮助学生提高英语应用能力及应试能力，提分效果显著。取得了非常好的口碑。'
+
+
+    lecture = Lecture_info.new
+    arr<<lecture
+    lecture.name='Jessie 王慧	'
+    lecture.course_name ='托福、雅思听力口语'
+    lecture.intro_info ='听力、口语金牌名师，西南地区一流听力培训师，有丰富的教学经验，因对托福和雅思听力与口语教学独特的见解，而在业界声名鹊起。年轻、活泼、与学员之间没有思想上的差距是她最大的优势，学员学习问题对症下药，课堂轻松、愉快是她最大的特点，听力教学的独门秘籍使得大批学员成功通过听力、口语考试，取得高分。'
+
+
+    lecture = Lecture_info.new
+    arr<<lecture
+    lecture.name='shirley 蔡'
+    lecture.course_name ='学科英语'
+    lecture.intro_info ='毕业于四川师范大学数学与应用数学专业，数学组优秀教师。辅修英语专业，经常接待来华访校外国老师和交换生（曾两年做为班主任接待来自美国，意大利，阿根廷，土耳其，墨西哥，丹麦，卢森堡的交换生在我校学习一个月）。对于有出国意向的学生可以进行全英文或双语数学教学。
+    对A-LEVEL,IB,AP,SAT数学都有独到的研究和教学心得。 【教学风格】 启发学生解题思路，培养学生学习兴趣。耐心真心对待每个学生。 【教学理念】 每个学生都有天赋，每个学生都需要时间成长。
+    学生提分效果非常显著，Alevel的学生经过一段时间的培训，成绩均在A以上，AP数学的学生成绩都没下过4分，SAT1数学大部分都是在800满分。'
+
+
+    lecture = Lecture_info.new
+    arr<<lecture
+    lecture.name='Alfie 孙	'
+    lecture.course_name ='学科英语'
+    lecture.intro_info ='川大生物医学工程专业学士学位， 川大生物工程专业硕士学位。 获得CFA专业证书
+    专攻：AP\ALEVEL\ACT等学术类考试教学，教学风格严谨，对学生有耐心和责任心，所教学生在英国度读中，Alevel考试从原来的C到达A+。'
+
+
+    lecture = Lecture_info.new
+    arr<<lecture
+    lecture.name='周婕'
+    lecture.course_name ='托福 SAT'
+    lecture.intro_info ='英语基础扎实：首次托福考试取得了听力满分，阅读29，写作28的成绩；高分通过英语专四、专八；大学英语四级为613分，六级为597分；在BEC及上海高级口译（笔试）上也都取得了优秀的成绩。 热爱教学，自毕业以来一直从事的是教学工作，尤其热爱出国留学类考试的教学，并且在三年的工作经历后，对教学的信心和热情有增无减，仍将教育培训作为首要的工作选择。对自己的教学风格也有了更明确的定位，与学生的沟通能力得到了很大的提升，对家长的考虑认识得也更全面了。'
+
+
+    lecture = Lecture_info.new
+    arr<<lecture
+    lecture.name='王菂'
+    lecture.course_name ='GMAT'
+    lecture.intro_info ='四川大学数学基地班，管理科学硕士，香港大学进修学者，出版专著《中级管理经济学》，曾任国内最大教育集团主管、全国教师培训师，SAT、AP主办机构CollegeBoard官方认证AP教师，四门AP满分获得者，荣获AP Scholar with Honor称号。成都最全面数学教师，主讲SAT、SAT2、AP、GRE、GMAT、A-Level、GCSE等教程'
+
+
+    arr
+
   end
 
   def self.school_features

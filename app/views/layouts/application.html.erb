@@ -69,7 +69,7 @@
 <!--[if lt IE 7]>
 <p class="browsehappy">您使用的是 <strong>过期的</strong> 老浏览器. 请 <a href="http://browsehappy.com/">安装最新版本的浏览器</a>以便体验采用新技术开发的网站</p>
 <![endif]-->
-<section>
+<section style="opacity: 1;">
 <!-- BEGIN SIDEBAR -->
 <%=render partial:'layouts/layout_siderbar'%>
 
@@ -413,7 +413,7 @@
 <% end %>
 <!-- END SEARCH -->
 <!-- BEGIN PRELOADER -->
-
+<% if nil %>
 <div class="loader-overlay">
   <div class="spinner">
     <div class="bounce1"></div>
@@ -421,6 +421,7 @@
     <div class="bounce3"></div>
   </div>
 </div>
+<% end %>
 <!-- END PRELOADER -->
 <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
 

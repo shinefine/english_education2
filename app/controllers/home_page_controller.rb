@@ -2,8 +2,9 @@ require 'IndexPageData'
 #网站首页
 class HomePageController < ApplicationController
 
+  #网站首页针对不同学校,使用不同的布局模板和 index 页内容
   before_action :set_lecturers
-  layout SchoolSettings.home_page_layout_name
+  layout SchoolSettings.home_page_layout_name  #设置针对不同学校的首页布局模板
 
 
 
@@ -12,7 +13,7 @@ class HomePageController < ApplicationController
 
     #@lastest_9_Courses=HomePageData.all_courses.shuffle.take 9
     @courses = HomePageData.all_courses
-    render SchoolSettings.home_page_view_name
+    render SchoolSettings.home_page_view_name  #根据不同学校,输出不同的index页面内容
   end
 
   def search
@@ -24,6 +25,12 @@ class HomePageController < ApplicationController
             }
           }
         ).records
+  end
+
+  def lecturer_list
+    #讲师介绍页面
+    id = params[:id].to_i
+    @lecturer = HomePageData.lecturers[id]
   end
 
   def lecturer_profile

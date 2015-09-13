@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require chosen-jquery
+
 //= require d3.v3
 //= require nv.d3.min
 //= require stream_layers

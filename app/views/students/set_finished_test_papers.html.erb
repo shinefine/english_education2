@@ -26,5 +26,13 @@
       </div>
     </div>
   </div>
+  <% content_for :page_js do %>
+  <script>
+    $(function(){
+        $("#multiple_select_toefl_testpaper").select2();
+        $("#multiple_select_sat_testpaper").select2();
+    });
+  </script>
+  <% end %>
 
 </div>

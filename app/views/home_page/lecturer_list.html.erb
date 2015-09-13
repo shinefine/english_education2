@@ -1,0 +1,37 @@
+
+<div class="full centered-text">
+  <div class="row">
+    <div class="large-8 large-centered columns">
+      <div class="two spacing"></div>
+      <h2 class="wow slideInUp">The pictures</h2>
+      <p class="wow slideInUp">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime aliquid saepe laudantium tempore est ullam inventore cupiditate, sunt ipsum aspernatur consectetur sequi, similique ducimus impedit qui vitae! Natus.</p>
+    </div>
+  </div>
+</div>
+<div class="full centered-text">
+
+  <div class="row">
+    <% css_strs=['slideInRight','slideInLeft']%>
+    <% HomePageData.lectures_info.each do |lecture|%>
+    <div class="large-6 columns no-padding wow <%= css_strs.rotate!.first %>">
+      <div class="work">
+        <img src="/homepage/images/@stock/work-1.jpg" alt="">
+        <div class="info">
+          <h3><%= lecture.name %></h3>
+          <p><%= lecture.intro_info %></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+</div>
+<div class="full centered-text">
+  <div class="row">
+    <div class="large-8 large-centered columns">
+      <div class="two spacing"></div>
+      <h2 class="wow slideInUp">What we have done</h2>
+      <p class="wow slideInUp">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime aliquid saepe laudantium tempore est ullam inventore cupiditate, sunt ipsum aspernatur consectetur sequi, similique ducimus impedit qui vitae! Natus.</p>
+    </div>
+  </div>
+</div>

@@ -5,8 +5,8 @@ module ApplicationHelper
 
   end
 
-
-  def nav_menu_item_icons()
+  #返回 左側导航兰的各项的图标
+  def left_sidebar_nav_menu_item_icons()
     item_icons={
         "关于"=>"icon-puzzle",
         "基础数据" => "icon-puzzle",
@@ -17,8 +17,8 @@ module ApplicationHelper
     }
     item_icons
   end
-#返回 在页面左侧导航菜单栏中应该出现的内容
-  def nav_menu_items()
+  #返回 在页面左侧导航菜单栏中应该出现的内容
+  def left_sidebar_nav_menu_items()
     nav_menus={ }
     if current_user.nil?
       return nav_menus

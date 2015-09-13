@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 #source 'https://ruby.taobao.org'
 
 #---------------------系统功能---------------------
-gem 'select2-rails'
+gem 'select2-rails','3.5.9.3'
 
 
 #图片上传功能,若需要缩放图片,则需依赖mini_magick gem
@@ -14,10 +14,10 @@ gem 'carrierwave','0.10.0'
 gem 'mini_magick' ,'3.3'
 
 #文字对应拼音(汉字排序用)
-gem 'ruby-pinyin'
+gem 'ruby-pinyin','0.4.6'
 
 # 本地化支持
-gem 'rails-i18n'
+gem 'rails-i18n','4.0.4'
 #系统全站搜索
 #gem "elasticsearch", :git => "git://github.com/elasticsearch/elasticsearch-ruby.git"
 #gem "elasticsearch-model", :git => "git://github.com/elasticsearch/elasticsearch-rails.git"
@@ -59,7 +59,7 @@ gem 'mysql2', '~> 0.3.16'
 
 
 #表单创建
-gem 'simple_form'
+gem 'simple_form','3.1.1'
 
 #分页
 gem 'kaminari','0.16.3'
@@ -74,7 +74,7 @@ gem 'jquery-ui-rails','5.0.0'
 gem 'jquery-ui-themes','0.0.11'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails','3.1.4'
 
 
 gem 'sass', '3.2.19'  # 使用3.2.0 版会报 "wrong number argments 3 for 2" 错误
@@ -86,14 +86,13 @@ gem 'sprockets-rails', '2.1.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '4.0.1'
 
-#html 的select 控件功能增强
-gem 'chosen-rails'
+
 
 #----------------------测试 相关-------------------------
 group :development,:test do
-  gem 'rspec-rails'  #bundle install 后 需执行 rails g rspec:install 生成配置文件
+  gem 'rspec-rails' ,'3.3.3' #bundle install 后 需执行 rails g rspec:install 生成配置文件
   gem 'factory_girl_rails','3.3.0'
 end
 
@@ -107,7 +106,7 @@ group :development do
 
   # Quiet assets 用于屏蔽 rails assets log 信息,比如:
   # Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 17:05:52 +0800
-  gem 'quiet_assets'
+  gem 'quiet_assets','1.1.0'
 
   # Better error page for Rails and other Rack apps
   # https://github.com/charliesome/better_errors
@@ -130,7 +129,7 @@ end
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 #gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder', '2.3.1'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
