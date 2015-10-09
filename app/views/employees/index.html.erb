@@ -1,19 +1,12 @@
 <div class="page-content page-thin">
 
-  <% content_for :temp_css_for_semantic do %>
-
-      <link rel="stylesheet" type="text/css" href="/semantic.min.css">
-  <% end %>
-  <% content_for :temp_js_for_semantic do %>
-      <script src="/semantic.min.js"></script>
-  <% end %>
 
 
 <%= render partial: 'shared/page_title_caption', object: "员工列表" %>
 
 <h3>共有员工 <%= @employees.length %> 人</h3>
 
-<table class="ui celled table segment">
+<table class=" celled table segment">
   <thead>
   <tr>
 
@@ -46,14 +39,14 @@
 
 
         <%if current_user.can_manage_basic_data?%>
-            <td><%= link_to '修改', edit_employee_path(emp) ,{class: 'ui green button'}%></td>
+            <td><%= link_to '修改', edit_employee_path(emp) ,{class:"btn btn-primary"}%></td>
             <td>
             <%if emp.freezing_flag%>
-                <%= link_to '解冻', unfreezing_employee_path(emp),{class: 'ui green button', method: :patch }%>
+                <%= link_to '解冻', unfreezing_employee_path(emp),{class:"btn btn-primary", method: :patch }%>
             <%else%>
-                <%= link_to '冻结', freezing_employee_path(emp),{class: 'ui blue button', method: :patch }%>
+                <%= link_to '冻结', freezing_employee_path(emp),{class:"btn btn-primary", method: :patch }%>
             <%end%>
-            <%= link_to '删除', emp, {class:'ui red button',method: :delete, data: { confirm: '确认删除员工?' }} %></td>
+            <%= link_to '删除', emp, {class:"btn btn-danger",method: :delete, data: { confirm: '确认删除员工?' }} %></td>
         <%end%>
 
       </tr>
@@ -63,7 +56,7 @@
 
 <br>
 <%if current_user.can_manage_basic_data?%>
-<%= link_to '新建 员工', new_employee_path ,{class: 'ui blue button'}%>
+<%= link_to '新建 员工', new_employee_path ,{class:"btn btn-primary"}%>
 <%end%>
 
 </div>

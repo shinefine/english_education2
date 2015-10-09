@@ -15,8 +15,8 @@
       <% TrainingClassType.send(:toefl_types).map do |toefl_type| %>
 
           <% if tc_type_names.count(toefl_type) > 0 %>
-              <i class="green checkmark icon"></i>
-              <label class="ui green label">
+
+              <label class="label label-success">
                 <%= toefl_type %>
               </label>
           <% else %>
@@ -26,8 +26,8 @@
       <% end %>
       <% TrainingClassType.send(:sat_types).map do |sat_type| %>
           <% if tc_type_names.count(sat_type) > 0 %>
-              <i class="green checkmark icon"></i>
-              <label class="ui green label">
+
+              <label class="label label-success">
                 <%= sat_type %>
               </label>
           <% else %>

@@ -14,8 +14,8 @@
         <tr>
           <td><%= text_book.name %></td>
 
-          <td><%= link_to '修改', edit_text_book_path(text_book), {class: 'ui green button'} %></td>
-          <td><%= link_to '删除', text_book, {class: 'ui red button', method: :delete, data: {confirm: '确认删除?'}} %></td>
+          <td><%= link_to '修改', edit_text_book_path(text_book), {class:"btn btn-primary"}%></td>
+          <td><%= link_to '删除', text_book, {class:"btn btn-danger", method: :delete, data: {confirm: '确认删除?'}} %></td>
         </tr>
     <% end %>
     </tbody>
@@ -23,10 +23,10 @@
 
   <br>
 
-  <div class="ui buttons">
-    <%= link_to '新建 SAT 培训教材', new_text_book_path(exam_type: 'SAT'), {class: 'ui blue button'} %>
-    <div class="or"></div>
-    <%= link_to '新建 TOEFL 培训教材', new_text_book_path(exam_type: 'TOEFL'), {class: 'ui blue button'} %>
-  </div>
+
+    <%= link_to '新建 SAT 培训教材', new_text_book_path(exam_type: 'SAT'), {class:"btn btn-primary"} %>
+
+    <%= link_to '新建 TOEFL 培训教材', new_text_book_path(exam_type: 'TOEFL'), {class:"btn btn-primary"} %>
+
 
 </div>

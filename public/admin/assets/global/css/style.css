@@ -7,7 +7,7 @@
 @import "icons/font-awesome/font-awesome.css";
 @import "icons/line-icons/line-icons.css";
 @import "icons/line-icons/simple-line-icons.css";
-@import "../plugins/select2/select2.css";
+@import "../../admin/plugins2/select2/select2.css";
 @import "../plugins/slick/slick.css";
 @import "../plugins/icheck/skins/all.css";
 @import "../../admin/plugins2/bootstrap/css/jasny-bootstrap.css";

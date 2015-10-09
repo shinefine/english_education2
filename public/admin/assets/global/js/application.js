@@ -19,17 +19,13 @@ var headerRightWidth = $('.header-right').width();
 var start = delta = end = 0;
 $(window).load(function() {
     "use strict";
-//    setTimeout(function() {
-//        $('.loader-overlay').addClass('loaded');
-//        $('body > section').animate({
-//            opacity: 1
-//        }, 400);
-//
-//        $("#multiple_select_toefl_testpaper").select2();
-//        $("#multiple_select_sat_testpaper").select2();
-//        $("#multiple_select_control_select_student").select2();
-//        $("#multiple_select_control_select_book").select2();
-//    }, 500);
+    setTimeout(function() {
+        $('.loader-overlay').addClass('loaded');
+        $('body > section').animate({
+            opacity: 1
+        }, 200);
+
+    }, 200);
 });
 
 

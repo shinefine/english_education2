@@ -1,3 +1,7 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+
 <%= simple_form_for(@test_paper) do |f| %>
 
     <%= f.error_notification %>
@@ -8,7 +12,7 @@
       <%= f.input :name,label:"试卷名称" %>
     </div>
     <%if nil %>
-        <div class="ui teal ribbon label">sections数量:<%= @test_paper.sections.length %></div>
+        <div class="label">sections数量:<%= @test_paper.sections.length %></div>
         <br>
 
         <div class="field">
@@ -22,6 +26,9 @@
     <%end%>
 
     <div class="form-actions">
-      <%= f.button :submit ,"保存试卷"%>
+      <%= f.button :submit ,"保存试卷",inner_html: {class:"btn btn-primary"}%>
     </div>
 <% end %>
+    </div>
+  </div>
+</div>

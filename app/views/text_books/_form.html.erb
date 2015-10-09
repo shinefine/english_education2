@@ -1,13 +1,19 @@
-<%= simple_form_for(@text_book) do |f| %>
-  <%= f.error_notification %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+    <%= simple_form_for(@text_book) do |f| %>
+
+      <%= f.error_notification %>
+
+      <div class="field">
+         <%= f.input :name,label:"名称"  %>
+      </div>
 
 
-        <div class="field">
-    <%= f.input :name,label:"名称"  %>
-        </div>
-
-
-  <div class="form-actions">
-    <%= f.button :submit,"保存" %>
+      <div class="form-actions">
+        <%= f.button :submit,"保存" ,inner_html: {class:"btn btn-primary"}%>
+      </div>
+    <% end %>
+    </div>
   </div>
-<% end %>
+</div>

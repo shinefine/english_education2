@@ -14,22 +14,20 @@
   <tbody>
     <% @test_papers.each do |test_paper| %>
       <tr>
-        <td><%= link_to  test_paper.name , edit_test_paper_path(test_paper), {class:'ui purple button'} %></td>
+        <td><%= link_to  test_paper.name , edit_test_paper_path(test_paper), {class:"btn btn-primary"} %></td>
         <td><%= test_paper.exam_type %></td>
         <td><%= link_to(test_paper.sections.count,test_paper_sections_path(test_paper)) %></td>
-        <td><%= link_to '修改', edit_test_paper_path(test_paper) ,{class:'ui green button'}%></td>
+        <td><%= link_to '修改', edit_test_paper_path(test_paper) ,{class:"btn btn-primary"}%></td>
 
-        <td><%= link_to '删除试卷', test_paper,{class:'ui red button', method: :delete, data: { confirm: '确认删除试卷?' } }%></td>
+        <td><%= link_to '删除试卷', test_paper,{class:"btn btn-danger", method: :delete, data: { confirm: '确认删除试卷?' } }%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<div class="ui buttons">
-  <%= link_to '新建 SAT 试卷', new_test_paper_path(exam_type:'SAT') ,{class:'ui blue button'}%>
-  <div class="or"></div>
-  <%= link_to '新建 TOEFL 试卷', new_test_paper_path(exam_type:'TOEFL') ,{class:'ui blue button'}%>
-</div>
+  <%= link_to '新建 SAT 试卷', new_test_paper_path(exam_type:'SAT') ,{class:"btn btn-primary"}%>
+
+  <%= link_to '新建 TOEFL 试卷', new_test_paper_path(exam_type:'TOEFL') ,{class:"btn btn-primary"}%>
+
 </div>

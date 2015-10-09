@@ -1,16 +1,56 @@
 Rails.application.routes.draw do
 
+  root 'home_page#index'
+
   namespace :admin do
-  get 'home_page/index'
-  get 'home_page/login'
+    get 'home_page/index'
+    get 'login'=>'home_page#login' #这个路由页面css效果有问题(原因不知道),目前使用下面的login路由
+    get 'home_page/login'
   end
 
-  root 'home_page#index'
+  #登入登出
+  post 'session/create'
+  get 'session/destroy' ,as:'log_out'
+
+
+  concern :freezingable do  #可继承此概念的路由
+    patch :unfreezing, on: :member
+    patch :freezing, on: :member
+  end
+
+
+  #讲师路由
+  resources :teachers , concerns: [:freezingable] do
+  end
+
+  #教材路由
+  resources :text_books
+
+  #试卷路由
+  resources :test_papers do    #考试套题包含套题的section
+    resources :sections
+  end
+
+  #学科课程路由(不同培训班有不同的学科)
+  resources :subjects
+
+  #员工路由
+  resources :employees , concerns: [:freezingable]
+
+  #用户账户路由
+  resources :users do
+    get :set_password , on: :member
+  end
+
+
 
   get 'home_page/course_list' =>'home_page#course_list',as:'courseList'
   get 'home_page/lecturer_profile' => 'home_page#lecturer_profile', as:'lecturer_profile'
   get 'home_page/lecturer_list' => 'home_page#lecturer_list', as:'lecturers_intro'
-  get '/login' =>'home_page#login', as: 'login'
+
+
+  #get '/login' =>'home_page#login', as: 'login'
+
   resources :articles do
     get 'tags/:tag', to: 'articles#index', as: :tag ,on: :collection
   end
@@ -26,21 +66,7 @@ Rails.application.routes.draw do
   get 'home_page/big_data_report_scores'
   post 'home_page/big_data_report_scores'
 
-  resources :subjects
 
-  resources :text_books
-
-  concern :freezingable do
-    patch :unfreezing, on: :member
-    patch :freezing, on: :member
-  end
-
-  resources :employees , concerns: [:freezingable]
-
-
-  resources :users do
-    get :set_password , on: :member
-  end
 
   resources :questions
 
@@ -79,13 +105,7 @@ Rails.application.routes.draw do
 
   # 无用 get 'students/:id/simulate_score_list'=>'students#simulate_score_list',as: 'student_simulate_score_list'
 
-  post 'session/create'
 
-  get 'session/destroy' ,as:'log_out'
-
-  resources :test_papers do    #考试套题包含套题的section
-    resources :sections
-  end
 
   resources :comments,only:[:destroy]
 
@@ -114,9 +134,7 @@ Rails.application.routes.draw do
 
 
   end
-  resources :teachers , concerns: [:freezingable] do
 
-  end
 
 
 

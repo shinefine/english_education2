@@ -10,7 +10,6 @@ class HomePageController < ApplicationController
 
 
   def index
-
     #@lastest_9_Courses=HomePageData.all_courses.shuffle.take 9
     @courses = HomePageData.all_courses
     render SchoolSettings.home_page_view_name  #根据不同学校,输出不同的index页面内容
@@ -89,7 +88,6 @@ class HomePageController < ApplicationController
 
   end
 
-
   def upload
     uploaded_io = params[:schedule]
     File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
@@ -100,6 +98,7 @@ class HomePageController < ApplicationController
 
 
   end
+
   def delete_schedule
     File.delete(Rails.root.join('public', 'uploads', params[:filename]))
 

@@ -36,12 +36,7 @@ $(function(){
         })
     ; //使得 消息提示条 具备 关闭 功能
 
-    $('.ui.dropdown').dropdown();
-//    $('.popup_stu_score').popup();
-//    $('.popup_tip_button').popup();
-    $('.ui.accordion')
-        .accordion()
-    ;
+
     get_score = function(course_name) {
         field_name='';
         switch (course_name) {

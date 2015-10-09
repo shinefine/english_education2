@@ -5,9 +5,8 @@
     <ul class='title-area'>
       <li class='name'>
         <h1>
-          <a href='index.html'>
-            RuiXi
-          </a>
+          <%= link_to '瑞希教育',root_path %>
+
         </h1>
       </li>
     </ul>
@@ -85,6 +84,8 @@
   <div class="header-intro centered-text">
     <h1 class="wow slideInUp">RuiXi</h1>
     <p class="sub-title wow slideInDown"><%= @school_name%></p>
+    <%= link_to '登录', admin_home_page_login_path ,{class: "button boxed black slideInUp"}%>
+
   </div>
 </div>
 

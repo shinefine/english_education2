@@ -1,4 +1,4 @@
-<!--Make 布局模板-->
+<!--admin 后台使用的  Make 布局模板-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +9,7 @@
   <link rel="shortcut icon" href="/admin/assets/global/images/favicon.png" type="image/png">
   <title>Welcome</title>
 
+  <!--Todo : 为仍旧使用semantic 模板的老页面准备的兼容代码,以后要删掉-->
   <%= yield :temp_css_for_semantic%>
 
   <link href="/admin/assets/global/css/style.css" rel="stylesheet">
@@ -31,6 +32,7 @@
 
   </style>
 
+  <!--输出 assets pipline 的css引用文件-->
   <%= stylesheet_link_tag    'application', media: 'all' %>
 
   <!-- BEGIN PAGE STYLE -->
@@ -453,7 +455,6 @@
 <%if  nil #屏蔽这些js%>
     <script src="/admin/assets/global/plugins/bootstrap-dropdown/bootstrap-hover-dropdown.min.js"></script> <!-- Show Dropdown on Mouseover -->
     <script src="/admin/assets/global/plugins/charts-sparkline/sparkline.min.js"></script> <!-- Charts Sparkline -->
-    <script src="/admin/assets/admin/plugins2/select2/select2.min.js"></script> <!-- Select Inputs -->
 
     <script src="/admin/assets/global/plugins/icheck/icheck.min.js"></script> <!-- Checkbox & Radio Inputs -->
     <script src="/admin/assets/global/plugins/backstretch/backstretch.min.js"></script> <!-- Background Image -->

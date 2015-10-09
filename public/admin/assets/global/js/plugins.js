@@ -282,8 +282,8 @@ function inputSelect(){
                     allowClear: $(this).data('allowclear') ? $(this).data('allowclear') : true,
                     minimumInputLength: $(this).data('minimumInputLength') ? $(this).data('minimumInputLength') : -1,
                     minimumResultsForSearch: $(this).data('search') ? 1 : -1,
-                    dropdownCssClass: $(this).data('style') ? 'form-white' : '',
-                    maximumSelectionSize: 3 // Limit the number max of selection for multiple select
+                    dropdownCssClass: $(this).data('style') ? 'form-white' : ''
+                    //maximumSelectionSize: 3 // Limit the number max of selection for multiple select
                 });
             });
 
